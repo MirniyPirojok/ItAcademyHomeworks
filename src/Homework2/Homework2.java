@@ -1,24 +1,21 @@
 package Homework2;
 
-import org.w3c.dom.ls.LSOutput;
-
-import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class Homework2 {
     public static void main(String[] args) {
 
         /*enter data*/
-        int[] numArray = {5, 4, 3, 2, 1};
-        String[] strArray = {"e", "d", "c", "b", "a"};
+        int[] numArray = {10, 9, 8, 7, 5, 6, 5, 4, 2, 1};
+        String[] strArray = {"stuv", "mnopqr", "jhigkl", "wxyz", "abcdef"};
 
-        // numbers array
+        // show numbers array
         System.out.print("Entered array of numbers: ");
         for (int value : numArray) {
             System.out.print(value + " ");
         }
 
-        // strings array
+        // show strings array
         System.out.print("\nEntered array of strings: ");
         for (String s : strArray) {
             System.out.print("\"" + s + "\" ");
@@ -30,6 +27,9 @@ public class Homework2 {
         task4(numArray);
         task5(numArray);
         task6(numArray);
+        numArray = task7(numArray); // delete an element
+        task8(numArray);
+        numArray = task9(numArray); // insert an element
     }
 
     /*Task 1. Write a Java program to sort a numeric array and a string array.*/
@@ -89,7 +89,7 @@ public class Homework2 {
         for (int value : numArray) {
             sum += value;
         }
-        int average = sum / numArray.length;
+        double average = (double) sum / numArray.length;
 
         System.out.println("Average value: " + average);
     }
@@ -119,7 +119,7 @@ public class Homework2 {
     /*Task 6.  Write a Java program to find the index of an array element.*/
     public static void task6(int[] numArray) {
         System.out.println("\n***Task 6. Write a Java program to find the index of an array element.***");
-        System.out.println("Enter one of the values you just entered: ");
+        System.out.println("Enter one of the values from array: ");
         Scanner input = new Scanner(System.in);
 
         int value = input.nextInt();
@@ -140,5 +140,106 @@ public class Homework2 {
         }
     }
 
+    /*Task 7.  Write a Java program to remove a specific element from an array.*/
+
+    public static int[] task7(int[] oldArray) {
+        System.out.println("\n***Task 7.  Write a Java program to remove a specific element from an array.***");
+
+        System.out.println("Enter value for removing: ");
+        Scanner input = new Scanner(System.in);
+        int specificElement = input.nextInt();
+        int sizeNewArray = oldArray.length;
+
+
+        // move values in the end of the oldArray
+
+        for (int j = 0; j < oldArray.length; j++) {
+            for (int i = 0; i < oldArray.length - 1; i++) {
+                if (oldArray[i] == specificElement) {
+                    oldArray[i] = oldArray[i + 1];
+                    oldArray[i + 1] = specificElement;
+                }
+            }
+        }
+
+        //find a size of the newArray
+        for (int value : oldArray) {
+            if (value == specificElement) sizeNewArray--;
+        }
+
+        // output oldArray values and size of newArray
+/*        System.out.println("oldArray: ");
+        for (int value : oldArray) {
+            System.out.println(value);
+        }
+        System.out.println("sizeNewArray = " + sizeNewArray);
+        */
+
+        int[] newArray = new int[sizeNewArray];
+
+        if (sizeNewArray == oldArray.length) {
+            System.out.println("Such value doesn't exist in this array. Please, enter correct value next time.");
+            return oldArray;
+        } else {
+            if (sizeNewArray >= 0) System.arraycopy(oldArray, 0, newArray, 0, sizeNewArray);
+        }
+
+        if (newArray.length != 0) {
+            System.out.print("Array: ");
+            for (int i : newArray) {
+                System.out.print(" " + i);
+            }
+        } else {
+            System.out.println("Array is empty");
+        }
+
+        return newArray;
+    }
+
+    /*Task 8.  Write a Java program to copy an array by iterating the array.*/
+    public static void task8(int[] oldArray) {
+        System.out.println("\n\n***Task 8.  Write a Java program to copy an array by iterating the array.***");
+        int[] newArray = new int[oldArray.length];
+        int i = 0;
+
+        for (int value : oldArray) {
+            newArray[i] = value;
+            i++;
+        }
+
+        // show newArray values
+        System.out.print("Copy is done. New array: ");
+        for (int value : newArray) {
+            System.out.print(value + " ");
+        }
+    }
+
+    /*Task 9.  Write a Java program to insert an element (specific position) into an array.*/
+    public static int[] task9(int[] oldArray) {
+        System.out.println("\n\n***Task 9.Write a Java program to insert an element (specific position) into an array.***");
+        Scanner input = new Scanner(System.in);
+        int[] newArray = new int[oldArray.length + 1];
+
+        System.out.println("Enter a new value: ");
+        int newValue = input.nextInt();
+        System.out.println("Enter specific position: ");
+        int position = input.nextInt();
+
+        System.arraycopy(oldArray, 0, newArray, 0, oldArray.length);
+
+        if (position < newArray.length) {
+            if (newArray.length - 1 - position >= 0)
+                System.arraycopy(newArray, position, newArray, position + 1, newArray.length - 1 - position);
+            newArray[position] = newValue;
+
+            System.out.print("New array: ");
+            for (int value : newArray) {
+                System.out.print(value + " ");
+            }
+        } else {
+            System.out.println("Position number is too big. Please, enter correct number next time.");
+        }
+        return newArray;
+    }
 
 } //class closer
