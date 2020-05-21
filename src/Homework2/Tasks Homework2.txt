@@ -10,6 +10,7 @@ Task 10. Write a Java program to find the maximum and minimum value of an array.
 Task 11. Write a Java program to reverse an array of integer values.
 Task 12. Write a Java program to find the duplicate values of an array of integer values.
 Task 13. Write a Java program to find the duplicate values of an array of string values.
+
 Task 14. Write a Java program to find the common elements between two arrays (string values).
 Task 15. Write a Java program to find the common elements between two arrays of integers.
 Task 16. Write a Java program to remove duplicate elements from an array.
