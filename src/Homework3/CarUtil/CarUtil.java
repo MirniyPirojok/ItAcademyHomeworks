@@ -11,19 +11,19 @@ public class CarUtil {
     }
 
     public static String  defineCarType(int weight){
-
         String type = "Unknown";
+
         switch (weight){
             case 1:
-                type = "Passenger car";
+                type = "passenger car";
                 break;
             case 2:
-                type = "Jeep";
+                type = "jeep";
                 break;
             case 3:
             case 4:
             case 5:
-                type = "Truck";
+                type = "truck";
                 break;
         }
         return type;

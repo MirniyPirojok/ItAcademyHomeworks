@@ -1,3 +1,8 @@
+/*Создать класс Car с 3 полями различных типов, 2 конструкторами, один из которых с параметрами.
+В классе создать 2 метода, статический и не статический.
+Один из методов решает по весу машины ее тип: легковой, джип, грузовой (через свитч).
+Второй метод генерирует рандомную машину.*/
+
 package Homework3;
 
 import Homework3.CarUtil.CarUtil;
@@ -10,8 +15,7 @@ public class Main {
         car.setWeight(CarUtil.generateCarWeight());
         car.setType(CarUtil.defineCarType(car.getWeight()));
 
-        System.out.println("\nCar owner: " + Car.getCarOwner());
-        System.out.println("New car weight: " + car.getWeight() + " ton");
-        System.out.println("Car type: " + car.getType());
+        System.out.println(car);
+
     }
 }
