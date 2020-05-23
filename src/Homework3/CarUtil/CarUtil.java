@@ -9,13 +9,9 @@ public class CarUtil {
 
     public static Car generateCar(){
         Car car = new Car();
-        car.setWeight(CarUtil.generateCarWeight());
+        car.setWeight(new Random().nextInt(4)+1);
         car.setType(CarUtil.defineCarType(car));
         return car;
-    }
-
-    public static int generateCarWeight() {
-        return new Random().nextInt(4)+1;
     }
 
     public static String defineCarType(Car car){
