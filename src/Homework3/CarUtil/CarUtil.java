@@ -6,6 +6,14 @@ import Homework3.domain.Car;
 import java.util.Random;
 
 public class CarUtil {
+
+    public static Car generateCar(){
+        Car car = new Car();
+        car.setWeight(CarUtil.generateCarWeight());
+        car.setType(CarUtil.defineCarType(car));
+        return car;
+    }
+
     public static int generateCarWeight() {
         return new Random().nextInt(4)+1;
     }

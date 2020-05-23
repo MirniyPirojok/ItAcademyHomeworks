@@ -10,12 +10,9 @@ import Homework3.domain.Car;
 
 public class Main {
     public static void main(String[] args) {
-        Car car = new Car();
 
-        car.setWeight(CarUtil.generateCarWeight());
-        car.setType(CarUtil.defineCarType(car));
+        Car car = CarUtil.generateCar();
 
         System.out.println(car);
-
     }
 }
