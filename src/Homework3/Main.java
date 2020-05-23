@@ -13,7 +13,7 @@ public class Main {
         Car car = new Car();
 
         car.setWeight(CarUtil.generateCarWeight());
-        car.setType(CarUtil.defineCarType(car.getWeight()));
+        car.setType(CarUtil.defineCarType(car));
 
         System.out.println(car);
 

@@ -10,10 +10,10 @@ public class CarUtil {
         return new Random().nextInt(4)+1;
     }
 
-    public static String  defineCarType(int weight){
+    public static String defineCarType(Car car){
         String type = "Unknown";
 
-        switch (weight){
+        switch (car.getWeight()){
             case 1:
                 type = "passenger car";
                 break;
