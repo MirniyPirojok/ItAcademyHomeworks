@@ -2,7 +2,6 @@ package Homework3.CarUtil;
 
 import Homework3.Main;
 import Homework3.domain.Car;
-
 import java.util.Random;
 
 public class CarUtil {
