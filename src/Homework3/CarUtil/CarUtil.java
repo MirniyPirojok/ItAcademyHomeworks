@@ -1,34 +1,29 @@
 package Homework3.CarUtil;
 
-import Homework3.Main;
 import Homework3.domain.Car;
+
 import java.util.Random;
 
 public class CarUtil {
 
-    public static Car generateCar(){
+    public static Car generateCar() {
         Car car = new Car();
-        car.setWeight(new Random().nextInt(4)+1);
-        car.setType(CarUtil.defineCarType(car));
+        car.setWeight(new Random().nextInt(3) + 1);
+        defineCarType(car);
         return car;
     }
 
-    public static String defineCarType(Car car){
-        String type = "Unknown";
-
-        switch (car.getWeight()){
+    public static void defineCarType(Car car) {
+        switch (car.getWeight()) {
             case 1:
-                type = "passenger car";
+                car.setType("passenger car");
                 break;
             case 2:
-                type = "jeep";
+                car.setType("jeep");
                 break;
             case 3:
-            case 4:
-            case 5:
-                type = "truck";
+                car.setType("truck");
                 break;
         }
-        return type;
     }
 }
