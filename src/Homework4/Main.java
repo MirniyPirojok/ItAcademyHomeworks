@@ -10,10 +10,11 @@ import static Homework4.util.CarsUtil.sumOfWeights;
 
 public class Main {
     public static void main(String[] args) {
-        Car[] cars = generateCars(5);
+        Car[] cars = generateCars(15);
 
         showCars(cars);
         sortCarsByWeight(cars);
+        showCars(cars);
         sumOfWeights(cars);
 
         cars[0].upgrade(11);

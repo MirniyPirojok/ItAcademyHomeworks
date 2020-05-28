@@ -39,24 +39,23 @@ public class CarsUtil {
     }
 
     public static void showCars(Car[] cars) {
-        System.out.println("Car: ");
+        System.out.println();
         for (int i = 0; i < cars.length; i++) {
             System.out.println("car " + (i + 1) + " : " + cars[i]);
         }
     }
 
     public static void sortCarsByWeight(Car[] cars) {
-        System.out.println("\nSorted cars by weight: ");
-        int temp;
+        System.out.println("\nCars were sorted by weight. ");
+        Car temp;
         for (int i = 0; i < cars.length; i++) {
-            for (int j = i; j < cars.length - 1; j++) {
+            for (int j = 0; j < cars.length - 1-i; j++) {
                 if (cars[j].getWeight() > cars[j + 1].getWeight()) {
-                    temp = cars[j].getWeight();
-                    cars[j].setWeight(cars[j + 1].getWeight());
-                    cars[j + 1].setWeight(temp);
+                    temp = cars[j];
+                    cars[j]=cars[j + 1];
+                    cars[j + 1] = temp;
                 }
             }
-            System.out.println("car " + (i + 1) + " : " + cars[i]);
         }
     }
 

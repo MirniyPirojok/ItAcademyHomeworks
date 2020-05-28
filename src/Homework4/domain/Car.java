@@ -52,16 +52,14 @@ public class Car extends Transport {
 
     @Override
     public String toString() {
-        return "Car {" +
-                "'weight = " + getWeight() +
-                " ton' 'speed = " + getMaxSpeed() +
-                " km/h' 'type: " + type +
-                "' 'year: " + getYear() +
-                "' 'owner: " + getCarOwner() +
-                "'}";
+        return " {" +
+                "carOwner='" + carOwner + '\'' +
+                ", type='" + type + '\'' +
+                ", maxSpeed=" + maxSpeed +
+                ", weight=" + weight +
+                ", year=" + year +
+                '}';
     }
-
-
 }//end of class
 
 

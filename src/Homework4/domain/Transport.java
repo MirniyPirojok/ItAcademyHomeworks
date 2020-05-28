@@ -1,7 +1,7 @@
 package Homework4.domain;
 
 public class Transport extends Technology {
-    private int weight;
+    protected int weight;
 
     public Transport() {
     }
