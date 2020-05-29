@@ -1,14 +1,10 @@
 package Homework4.domain;
 
-public abstract class Technology {
-    protected static int year = 2005;
+public abstract class Technology implements TechnologyGrade {
+    protected static final int year = 2005;
 
     public int getYear() {
         return year;
-    }
-
-    public void setYear(int year) {
-        this.year = year;
     }
 
     public abstract int upgrade(int i);

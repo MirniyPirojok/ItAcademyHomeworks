@@ -1,21 +1,17 @@
 package Homework4.domain;
 
+import java.util.Objects;
+
 public class Car extends Transport {
-    final static String carOwner = "Yaroslav";
+    private final static String carOwner = "Yaroslav";
     private String type;
     private int maxSpeed;
 
     public Car() {
     }
 
-    public Car(int weight, int maxSpeed, String type) {
-        super(weight);
-        this.type = type;
-        this.maxSpeed = maxSpeed;
-    }
-
-    public Car(int weight, String type, int maxSpeed) {
-        super(weight);
+    public Car(int weight, int price, int maxSpeed, String type) {
+        super(weight, price);
         this.type = type;
         this.maxSpeed = maxSpeed;
     }
@@ -52,13 +48,31 @@ public class Car extends Transport {
 
     @Override
     public String toString() {
-        return " {" +
+        return "Car{" +
                 "carOwner='" + carOwner + '\'' +
                 ", type='" + type + '\'' +
                 ", maxSpeed=" + maxSpeed +
                 ", weight=" + weight +
+                ", price=" + price +
                 ", year=" + year +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Car car = (Car) o;
+        return maxSpeed == car.maxSpeed &&
+                weight == car.weight &&
+                price == car.price &&
+                Objects.equals(type, car.type);
+
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(type, maxSpeed, weight, price);
     }
 }//end of class
 
