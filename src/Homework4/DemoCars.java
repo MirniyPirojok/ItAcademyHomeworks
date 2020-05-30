@@ -3,29 +3,30 @@ package Homework4;
 import Homework4.domain.Car;
 import Homework4.domain.Transport;
 
-import static Homework4.util.CarsUtil.carsSort;
+
 import static Homework4.util.CarsUtil.generateCars;
+import static Homework4.util.CarsUtil.sortCars;
+import static Homework4.util.CarsUtil.countSum;
 import static Homework4.util.CarsUtil.showCars;
-import static Homework4.util.CarsUtil.sortCarsByMaxSpeed;
-import static Homework4.util.CarsUtil.sortCarsByPrice;
-import static Homework4.util.CarsUtil.sortCarsByWeight;
-import static Homework4.util.CarsUtil.sumOfWeights;
+
 
 
 public class DemoCars {
     public static void main(String[] args) {
         String sortByWeight = "sortByWeight", sortByMaxSpeed = "sortByMaxSpeed", sortByPrice = "sortByPrice";
+        String sumOfWeights = "sumOfWeights", sumOfPrices = "sumOfPrices";
 
         Car[] cars = generateCars(6);
 
         showCars(cars);
-        carsSort(cars, sortByWeight);
+        sortCars(cars, sortByWeight);
         showCars(cars);
-        carsSort(cars, sortByMaxSpeed);
+        sortCars(cars, sortByMaxSpeed);
         showCars(cars);
 
+        countSum(cars, sumOfPrices);
+        countSum(cars, sumOfWeights);
 
-        sumOfWeights(cars);
 
         cars[0].upgrade(11);
         System.out.println("\nUpgrade   car 1: " + cars[0]);
@@ -50,7 +51,7 @@ public class DemoCars {
         cars[5].setMaxSpeed(160);
         cars[5].setPrice(2000);
 
-        carsSort(cars, sortByPrice);
+        sortCars(cars, sortByPrice);
         showCars(cars);
 
         System.out.println("\nIs car1 and car2 equal? " + cars[0].equals(cars[1]));

@@ -45,7 +45,9 @@ public class CarsUtil {
         }
     }
 
-    public static void carsSort(Car[] cars, String criteria) {
+    //sort by criteria
+    //choose sort criteria
+    public static void sortCars(Car[] cars, String criteria) {
         switch (criteria) {
             case "sortByWeight":
                 sortCarsByWeight(cars);
@@ -103,12 +105,35 @@ public class CarsUtil {
         }
     }
 
+    //count sum by criteria
+    //choose sum criteria
+    public static void countSum(Car[] cars, String criteria) {
+        switch (criteria) {
+            case "sumOfWeights":
+                sumOfWeights(cars);
+                break;
+            case "sumOfPrices":
+                sumOfPrices(cars);
+                break;
+            default:
+                throw new IllegalStateException("Unexpected value: " + criteria);
+        }
+    }
+
     public static void sumOfWeights(Car[] cars) {
         int sum = 0;
         for (Car car : cars) {
             sum += car.getWeight();
         }
         System.out.println("\nTotal weight of all cars = " + sum + " ton");
+    }
+
+    public static void sumOfPrices(Car[] cars) {
+        int sum = 0;
+        for (Car car : cars) {
+            sum += car.getPrice();
+        }
+        System.out.println("\nTotal price of all cars = " + sum);
     }
 
 
