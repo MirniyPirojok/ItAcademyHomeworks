@@ -11,7 +11,7 @@ import static Homework4.util.CarsUtil.sortCars;
 
 public class DemoCars {
     public static void main(String[] args) {
-        int carsNumber = 6; // SHOULD BE AT LEAST 6 TO CHECK ALL FUNCTIONALITY!!!
+        int carsNumber = 6; // SHOULD BE AT LEAST 6 TO CHECK ALL FUNCTIONALITY!!! or you need change output in main()
         String sortCarsById = "sortCarsById",
                 sortCarsByWeight = "sortCarsByWeight",
                 sortCarsByMaxSpeed = "sortCarsByMaxSpeed",
