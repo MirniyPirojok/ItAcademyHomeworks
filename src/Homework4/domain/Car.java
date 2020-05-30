@@ -38,12 +38,12 @@ public class Car extends Transport {
 
     @Override
     public void upgrade(int i) {
-        maxSpeed += i;
+        this.maxSpeed += i;
     }
 
     @Override
     public void downgrade(int i) {
-        maxSpeed -= i;
+        this.maxSpeed -= i;
     }
 
     @Override
