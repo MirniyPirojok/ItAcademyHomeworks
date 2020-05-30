@@ -6,8 +6,8 @@ import java.util.Random;
 
 public class CarsUtil {
 
-    public static Car generateCar() {
-        Car car = new Car();
+    public static Car generateCar(int id) {
+        Car car = new Car(id);
         car.setWeight(new Random().nextInt(3) + 1);
         defineCarType(car);
         return car;
@@ -33,15 +33,15 @@ public class CarsUtil {
     public static Car[] generateCars(int num) {
         Car[] cars = new Car[num];
         for (int i = 0; i < num; i++) {
-            cars[i] = generateCar();
+            cars[i] = generateCar(i+1);
         }
         return cars;
     }
 
     public static void showCars(Car[] cars) {
         System.out.println();
-        for (int i = 0; i < cars.length; i++) {
-            System.out.println("car " + (i + 1) + " : " + cars[i]);
+        for (Car car : cars) {
+            System.out.println(car);
         }
     }
 

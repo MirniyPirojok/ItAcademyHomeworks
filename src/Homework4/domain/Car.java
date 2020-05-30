@@ -6,8 +6,12 @@ public class Car extends Transport {
     private final static String carOwner = "Yaroslav";
     private String type;
     private int maxSpeed;
+    private int id;
 
     public Car() {
+    }
+    public Car(int id) {
+        this.id = id;
     }
 
     public Car(int weight, int price, int maxSpeed, String type) {
@@ -39,6 +43,7 @@ public class Car extends Transport {
     @Override
     public void upgrade(int i) {
         this.maxSpeed += i;
+        System.out.println("Car " + this.id + " speed was upgraded = " + this.getMaxSpeed());
     }
 
     @Override
@@ -48,14 +53,13 @@ public class Car extends Transport {
 
     @Override
     public String toString() {
-        return "Car{" +
+        return "Car " + id + ": " +
                 "carOwner='" + carOwner + '\'' +
                 ", type='" + type + '\'' +
                 ", maxSpeed=" + maxSpeed +
                 ", weight=" + weight +
                 ", price=" + price +
-                ", year=" + year +
-                '}';
+                ", year=" + year;
     }
 
     @Override
