@@ -11,6 +11,7 @@ import static Homework4.util.CarsUtil.sortCars;
 
 public class DemoCars {
     public static void main(String[] args) {
+        int carsNumber = 6; // SHOULD BE AT LEAST 6 TO CHECK ALL FUNCTIONALITY!!!
         String sortCarsById = "sortCarsById",
                 sortCarsByWeight = "sortCarsByWeight",
                 sortCarsByMaxSpeed = "sortCarsByMaxSpeed",
@@ -18,7 +19,7 @@ public class DemoCars {
         String sumOfWeights = "sumOfWeights",
                 sumOfPrices = "sumOfPrices";
 
-        Car[] cars = generateCars(6);
+        Car[] cars = generateCars(carsNumber);
 
         //check CarsUtil methods
         showCars(cars);
@@ -41,6 +42,7 @@ public class DemoCars {
         cars[2].raisePrice(500);
         System.out.print("\nCar #" + cars[3].getId());
         cars[3].reducePrice(300);
+
         showCars(cars);
 
 
@@ -59,6 +61,7 @@ public class DemoCars {
         cars[5].setMaxSpeed(160);
         cars[5].setPrice(2000);
 
+
         sortCars(cars, sortCarsByPrice);
         showCars(cars);
 
@@ -68,10 +71,12 @@ public class DemoCars {
                 " and car #" + cars[1].getId() +
                 " equal? " + (cars[0].hashCode() == cars[1].hashCode()));
 
+
         System.out.println("\nIs car #" + cars[2].getId() + " and car #" + cars[3].getId() + " equal? " + cars[2].equals(cars[3]));
         System.out.println("Is hashcode car #" + cars[2].getId() +
                 " and car #" + cars[3].getId() +
                 " equal? " + (cars[2].hashCode() == cars[3].hashCode()));
+
 
         System.out.println("\nIs car #" + cars[4].getId() + " and car #" + cars[5].getId() + " equal? " + cars[4].equals(cars[5]));
         System.out.println("Is hashcode car #" + cars[4].getId() +
