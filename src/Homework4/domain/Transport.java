@@ -36,7 +36,7 @@ public class Transport extends Technology implements TransportTrading {
     @Override
     public void downgrade(int i) {
         if (i >= this.weight) {
-            System.out.println("\nDowngraded too much. Negative or zero weight is unacceptable.");
+            System.out.println("\nTransport downgraded too much. Negative or zero weight is unacceptable.");
         }
         else this.weight -= i;
     }
@@ -44,11 +44,13 @@ public class Transport extends Technology implements TransportTrading {
 
     @Override
     public void raisePrice(int i) {
-        price += i;
+        this.price += i;
+        System.out.println(" price was upgraded to " + this.getPrice());
     }
 
     @Override
     public void reducePrice(int i) {
-        price -= i;
+        this.price -= i;
+        System.out.println(" price was reduced to " + this.getPrice());
     }
 }//end of class

@@ -49,17 +49,34 @@ public class CarsUtil {
     //choose sort criteria
     public static void sortCars(Car[] cars, String criteria) {
         switch (criteria) {
-            case "sortByWeight":
+            case "sortCarsById":
+                sortCarsById(cars);
+                break;
+            case "sortCarsByWeight":
                 sortCarsByWeight(cars);
                 break;
-            case "sortByMaxSpeed":
+            case "sortCarsByMaxSpeed":
                 sortCarsByMaxSpeed(cars);
                 break;
-            case "sortByPrice":
+            case "sortCarsByPrice":
                 sortCarsByPrice(cars);
                 break;
             default:
                 throw new IllegalStateException("Unexpected value: " + criteria);
+        }
+    }
+
+    public static void sortCarsById(Car[] cars) {
+        System.out.println("\nCars were sorted by id: ");
+        Car temp;
+        for (int i = 0; i < cars.length; i++) {
+            for (int j = 0; j < cars.length - 1 - i; j++) {
+                if (cars[j].getId() > cars[j + 1].getId()) {
+                    temp = cars[j];
+                    cars[j] = cars[j + 1];
+                    cars[j + 1] = temp;
+                }
+            }
         }
     }
 

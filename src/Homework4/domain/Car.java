@@ -40,15 +40,24 @@ public class Car extends Transport {
         this.type = type;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     @Override
     public void upgrade(int i) {
         this.maxSpeed += i;
-        System.out.println("Car " + this.id + " speed was upgraded = " + this.getMaxSpeed());
+        System.out.println("\nCar " + this.id + " speed was upgraded = " + this.getMaxSpeed());
     }
 
     @Override
     public void downgrade(int i) {
         this.maxSpeed -= i;
+        System.out.println("\nCar " + this.id + " speed was downgraded = " + this.getMaxSpeed());
     }
 
     @Override
