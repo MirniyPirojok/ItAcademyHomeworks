@@ -1,7 +1,7 @@
 package Homework4.domain;
 
 public interface TransportTrading {
-    int raisePrice(int i);
+    void raisePrice(int i);
 
-    int reducePrice(int i);
+    void reducePrice(int i);
 }

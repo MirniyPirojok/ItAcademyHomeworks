@@ -1,7 +1,7 @@
 package Homework4.domain;
 
 public class Transport extends Technology implements TransportTrading {
-    protected int weight;
+    protected int weight = 1;
     protected int price = 1000;
 
     public Transport() {
@@ -29,24 +29,26 @@ public class Transport extends Technology implements TransportTrading {
     }
 
     @Override
-    public int upgrade(int i) {
-        return weight += i;
+    public void upgrade(int i) {
+        weight += i;
     }
 
     @Override
-    public int downgrade(int i) {
-        if (i > weight) return weight = 0;
-        else return weight -= i;
+    public void downgrade(int i) {
+        if (i >= weight) {
+            System.out.println("\nDowngraded too much. Negative or zero weight is unacceptable.");
+        }
+        else weight -= i;
     }
 
 
     @Override
-    public int raisePrice(int i) {
-        return price += i;
+    public void raisePrice(int i) {
+        price += i;
     }
 
     @Override
-    public int reducePrice(int i) {
-        return price -= i;
+    public void reducePrice(int i) {
+        price -= i;
     }
 }//end of class

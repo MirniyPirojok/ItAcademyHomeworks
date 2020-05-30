@@ -7,8 +7,8 @@ public abstract class Technology implements TechnologyGrade {
         return year;
     }
 
-    public abstract int upgrade(int i);
-    public abstract int downgrade(int i);
+    public abstract void upgrade(int i);
+    public abstract void downgrade(int i);
 
 
 }//end of class

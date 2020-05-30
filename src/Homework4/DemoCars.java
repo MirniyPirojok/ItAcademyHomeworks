@@ -1,7 +1,6 @@
 package Homework4;
 
 import Homework4.domain.Car;
-import Homework4.domain.Technology;
 import Homework4.domain.Transport;
 
 import static Homework4.util.CarsUtil.generateCars;
@@ -20,7 +19,7 @@ public class DemoCars {
         sumOfWeights(cars);
 
         cars[0].upgrade(11);
-        System.out.println("\nUpgrade car 1: " + cars[0]);
+        System.out.println("\nUpgrade   car 1: " + cars[0]);
 
         cars[1].downgrade(22);
         System.out.println("Downgrade car 2: " + cars[1]);
@@ -32,26 +31,30 @@ public class DemoCars {
         System.out.println("Reduce price of car 4: " + cars[3]);
 
         //checking work of equals and hashCode
-        cars[2].setWeight(3);
-        cars[2].setType("truck");
-        cars[2].setMaxSpeed(160);
-        cars[2].setPrice(2000);
+        cars[4].setWeight(3);
+        cars[4].setType("truck");
+        cars[4].setMaxSpeed(160);
+        cars[4].setPrice(2000);
 
-        cars[3].setWeight(3);
-        cars[3].setType("truck");
-        cars[3].setMaxSpeed(160);
-        cars[3].setPrice(2000);
+        cars[5].setWeight(3);
+        cars[5].setType("truck");
+        cars[5].setMaxSpeed(160);
+        cars[5].setPrice(2000);
 
         showCars(cars);
 
         System.out.println("\nIs car1 and car2 equal? " + cars[0].equals(cars[1]));
-        System.out.println("Is hashcode car1 and car2 equal? " + (cars[0].hashCode()==cars[1].hashCode()));
+        System.out.println("Is hashcode car1 and car2 equal? " + (cars[0].hashCode() == cars[1].hashCode()));
 
         System.out.println("\nIs car3 and car4 equal? " + cars[2].equals(cars[3]));
-        System.out.println("Is hashcode car3 and car4 equal? " + (cars[2].hashCode()==cars[3].hashCode()));
+        System.out.println("Is hashcode car3 and car4 equal? " + (cars[2].hashCode() == cars[3].hashCode()));
 
         System.out.println("\nIs car5 and car6 equal? " + cars[4].equals(cars[5]));
-        System.out.println("Is hashcode car5 and car6 equal? " + (cars[4].hashCode()==cars[5].hashCode()));
+        System.out.println("Is hashcode car5 and car6 equal? " + (cars[4].hashCode() == cars[5].hashCode()));
+
+        Transport transport = new Transport();
+        transport.downgrade(1);
+        System.out.println("Transport weight = " + transport.getWeight());
 
 
     }//end of main
