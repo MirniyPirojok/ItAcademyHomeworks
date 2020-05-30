@@ -42,8 +42,8 @@ public class DemoCars {
         showCars(cars);
 
 
-        //checking work of equals and hashCode
-        System.out.println("\nMake car" + cars[4].getId() + " and car" + cars[5].getId() + " equal for checking equals() and hashCode().");
+        //check working of equals and hashCode
+        System.out.println("\nMake car" + cars[4].getId() + " and car" + cars[5].getId() + " equal to check equals() and hashCode().");
         cars[4].setWeight(3);
         cars[4].setType("truck");
         cars[4].setMaxSpeed(160);
@@ -57,7 +57,6 @@ public class DemoCars {
         sortCars(cars, sortCarsByPrice);
         showCars(cars);
 
-
         System.out.println("\nIs car" + cars[0].getId() + " and car" + cars[1].getId() + " equal? " + cars[0].equals(cars[1]));
         System.out.println("Is hashcode car" + cars[0].getId() + " and car" + cars[1].getId() + " equal? " + (cars[0].hashCode() == cars[1].hashCode()));
 
@@ -67,11 +66,13 @@ public class DemoCars {
         System.out.println("\nIs car" + cars[4].getId() + " and car" + cars[5].getId() + " equal? " + cars[4].equals(cars[5]));
         System.out.println("Is hashcode car" + cars[4].getId() + " and car" + cars[5].getId() + " equal? " + (cars[4].hashCode() == cars[5].hashCode()));
 
+
+        //check transport methods
         Transport transport = new Transport();
+        System.out.println("\nSome transport was created: " + transport);
         transport.downgrade(1);
-        System.out.println("Transport weight = " + transport.getWeight());
         transport.upgrade(1);
-        System.out.println("Transport weight = " + transport.getWeight());
+        transport.downgrade(1);
 
 
     }//end of main
