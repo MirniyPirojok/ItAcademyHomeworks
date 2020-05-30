@@ -35,8 +35,10 @@ public class Transport extends Technology implements TransportTrading {
 
     @Override
     public int downgrade(int i) {
-        return weight += i;
+        if (i > weight) return weight = 0;
+        else return weight -= i;
     }
+
 
     @Override
     public int raisePrice(int i) {

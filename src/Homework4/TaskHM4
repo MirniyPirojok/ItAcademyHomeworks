@@ -2,6 +2,6 @@
 + создать иерархию наследования на 3 уровня с абстрактным классом (классы Technology, Transport, Car)
 + и 2-мя абстрактными методами, (upgrade, downgrade)
 + переопределить методы equals, hashCode, toString,
-+ перегрузить и переопределить 2 метода в классах и конструкторах, (Transport() & Transport(int weight), Car() & Car(int weight, int maxSpeed, String type))
++ перегрузить и переопределить 2 метода в классах и конструкторах,  (Overload: Transport() & Transport(int weight, int price), Car() & Car(int weight, int price, int maxSpeed, String type); Override: downgrade, upgrade)
 + продемонстрировать работу с массивами объектов из иерархии классов (сортировать по критериям, суммарный подсчет параметров и т.д.)(showCars(); sortCarsByWeight();sumOfWeights();)
 + добавить имплементацию 2 своих интерфейсов

@@ -1,6 +1,8 @@
 package Homework4;
 
 import Homework4.domain.Car;
+import Homework4.domain.Technology;
+import Homework4.domain.Transport;
 
 import static Homework4.util.CarsUtil.generateCars;
 import static Homework4.util.CarsUtil.showCars;
@@ -30,7 +32,6 @@ public class DemoCars {
         System.out.println("Reduce price of car 4: " + cars[3]);
 
         //checking work of equals and hashCode
-
         cars[2].setWeight(3);
         cars[2].setType("truck");
         cars[2].setMaxSpeed(160);
@@ -51,11 +52,6 @@ public class DemoCars {
 
         System.out.println("\nIs car5 and car6 equal? " + cars[4].equals(cars[5]));
         System.out.println("Is hashcode car5 and car6 equal? " + (cars[4].hashCode()==cars[5].hashCode()));
-
-
-
-
-
 
 
     }//end of main

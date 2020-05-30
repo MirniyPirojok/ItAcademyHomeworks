@@ -43,6 +43,7 @@ public class Car extends Transport {
 
     @Override
     public int downgrade(int i) {
+        if (i > maxSpeed) return maxSpeed = 0;
         return maxSpeed -= i;
     }
 
