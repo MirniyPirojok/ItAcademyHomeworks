@@ -3,19 +3,28 @@ package Homework4;
 import Homework4.domain.Car;
 import Homework4.domain.Transport;
 
+import static Homework4.util.CarsUtil.carsSort;
 import static Homework4.util.CarsUtil.generateCars;
 import static Homework4.util.CarsUtil.showCars;
+import static Homework4.util.CarsUtil.sortCarsByMaxSpeed;
+import static Homework4.util.CarsUtil.sortCarsByPrice;
 import static Homework4.util.CarsUtil.sortCarsByWeight;
 import static Homework4.util.CarsUtil.sumOfWeights;
 
 
 public class DemoCars {
     public static void main(String[] args) {
+        String sortByWeight = "sortByWeight", sortByMaxSpeed = "sortByMaxSpeed", sortByPrice = "sortByPrice";
+
         Car[] cars = generateCars(6);
 
         showCars(cars);
-        sortCarsByWeight(cars);
+        carsSort(cars, sortByWeight);
         showCars(cars);
+        carsSort(cars, sortByMaxSpeed);
+        showCars(cars);
+
+
         sumOfWeights(cars);
 
         cars[0].upgrade(11);
@@ -41,6 +50,7 @@ public class DemoCars {
         cars[5].setMaxSpeed(160);
         cars[5].setPrice(2000);
 
+        carsSort(cars, sortByPrice);
         showCars(cars);
 
         System.out.println("\nIs car1 and car2 equal? " + cars[0].equals(cars[1]));

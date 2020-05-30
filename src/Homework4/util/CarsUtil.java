@@ -45,14 +45,58 @@ public class CarsUtil {
         }
     }
 
+    public static void carsSort(Car[] cars, String criteria) {
+        switch (criteria) {
+            case "sortByWeight":
+                sortCarsByWeight(cars);
+                break;
+            case "sortByMaxSpeed":
+                sortCarsByMaxSpeed(cars);
+                break;
+            case "sortByPrice":
+                sortCarsByPrice(cars);
+                break;
+            default:
+                throw new IllegalStateException("Unexpected value: " + criteria);
+        }
+    }
+
     public static void sortCarsByWeight(Car[] cars) {
-        System.out.println("\nCars were sorted by weight. ");
+        System.out.println("\nCars were sorted by weight: ");
         Car temp;
         for (int i = 0; i < cars.length; i++) {
-            for (int j = 0; j < cars.length - 1-i; j++) {
+            for (int j = 0; j < cars.length - 1 - i; j++) {
                 if (cars[j].getWeight() > cars[j + 1].getWeight()) {
                     temp = cars[j];
-                    cars[j]=cars[j + 1];
+                    cars[j] = cars[j + 1];
+                    cars[j + 1] = temp;
+                }
+            }
+        }
+    }
+
+    public static void sortCarsByMaxSpeed(Car[] cars) {
+        System.out.println("\nCars were sorted by max speed: ");
+        Car temp;
+        for (int i = 0; i < cars.length; i++) {
+            for (int j = 0; j < cars.length - 1 - i; j++) {
+                if (cars[j].getMaxSpeed() > cars[j + 1].getMaxSpeed()) {
+                    temp = cars[j];
+                    cars[j] = cars[j + 1];
+                    cars[j + 1] = temp;
+                }
+            }
+        }
+    }
+
+    public static void sortCarsByPrice(Car[] cars) {
+        System.out.println("\nCars were sorted by price: ");
+        Car temp;
+        for (int i = 0; i < cars.length; i++) {
+            for (int j = 0; j < cars.length - 1 - i; j++) {
+                if (cars[j].getPrice() > cars[j + 1].getPrice()) {
+                    temp = cars[j];
+                    cars[j] = cars[j + 1];
                     cars[j + 1] = temp;
                 }
             }
