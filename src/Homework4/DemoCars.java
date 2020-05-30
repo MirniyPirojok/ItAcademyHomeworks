@@ -20,30 +20,35 @@ public class DemoCars {
 
         Car[] cars = generateCars(6);
 
+        //check CarsUtil methods
         showCars(cars);
         sortCars(cars, sortCarsByWeight);
         showCars(cars);
+
         sortCars(cars, sortCarsByMaxSpeed);
         showCars(cars);
+
         sortCars(cars, sortCarsById);
         showCars(cars);
-
 
         countSum(cars, sumOfPrices);
         countSum(cars, sumOfWeights);
 
-
+        //check Car methods
         cars[0].upgrade(11);
         cars[1].downgrade(22);
-        System.out.print("\nCar " + cars[2].getId());
+        System.out.print("\nCar #" + cars[2].getId());
         cars[2].raisePrice(500);
-        System.out.print("\nCar " + cars[3].getId());
+        System.out.print("\nCar #" + cars[3].getId());
         cars[3].reducePrice(300);
         showCars(cars);
 
 
-        //check working of equals and hashCode
-        System.out.println("\nMake car" + cars[4].getId() + " and car" + cars[5].getId() + " equal to check equals() and hashCode().");
+        //make two cars equal to check equals() and hashCode()
+        System.out.println("\nMake car #" + cars[4].getId() +
+                " and car #" + cars[5].getId() +
+                " equal to check equals() and hashCode().");
+
         cars[4].setWeight(3);
         cars[4].setType("truck");
         cars[4].setMaxSpeed(160);
@@ -57,14 +62,21 @@ public class DemoCars {
         sortCars(cars, sortCarsByPrice);
         showCars(cars);
 
-        System.out.println("\nIs car" + cars[0].getId() + " and car" + cars[1].getId() + " equal? " + cars[0].equals(cars[1]));
-        System.out.println("Is hashcode car" + cars[0].getId() + " and car" + cars[1].getId() + " equal? " + (cars[0].hashCode() == cars[1].hashCode()));
+        //check working of equals and hashCode
+        System.out.println("\nIs car #" + cars[0].getId() + " and car #" + cars[1].getId() + " equal? " + cars[0].equals(cars[1]));
+        System.out.println("Is hashcode car #" + cars[0].getId() +
+                " and car #" + cars[1].getId() +
+                " equal? " + (cars[0].hashCode() == cars[1].hashCode()));
 
-        System.out.println("\nIs car" + cars[2].getId() + " and car" + cars[3].getId() + " equal? " + cars[2].equals(cars[3]));
-        System.out.println("Is hashcode car" + cars[2].getId() + " and car" + cars[3].getId() + " equal? " + (cars[2].hashCode() == cars[3].hashCode()));
+        System.out.println("\nIs car #" + cars[2].getId() + " and car #" + cars[3].getId() + " equal? " + cars[2].equals(cars[3]));
+        System.out.println("Is hashcode car #" + cars[2].getId() +
+                " and car #" + cars[3].getId() +
+                " equal? " + (cars[2].hashCode() == cars[3].hashCode()));
 
-        System.out.println("\nIs car" + cars[4].getId() + " and car" + cars[5].getId() + " equal? " + cars[4].equals(cars[5]));
-        System.out.println("Is hashcode car" + cars[4].getId() + " and car" + cars[5].getId() + " equal? " + (cars[4].hashCode() == cars[5].hashCode()));
+        System.out.println("\nIs car #" + cars[4].getId() + " and car #" + cars[5].getId() + " equal? " + cars[4].equals(cars[5]));
+        System.out.println("Is hashcode car #" + cars[4].getId() +
+                " and car #" + cars[5].getId() +
+                " equal? " + (cars[4].hashCode() == cars[5].hashCode()));
 
 
         //check transport methods
