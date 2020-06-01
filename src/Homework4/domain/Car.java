@@ -77,16 +77,19 @@ public class Car extends Transport {
         if (o == null || getClass() != o.getClass()) return false;
         Car car = (Car) o;
         return maxSpeed == car.maxSpeed &&
+                id == car.id &&
                 weight == car.weight &&
                 price == car.price &&
-                Objects.equals(type, car.type);
-
+                year == car.year &&
+                Objects.equals(type, car.type) &&
+                Objects.equals(carOwner, car.carOwner);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(type, maxSpeed, weight, price);
+        return Objects.hash(type, maxSpeed, id, weight, price, carOwner, year);
     }
+
 }//end of class
 
 
