@@ -77,7 +77,6 @@ public class Car extends Transport {
         if (o == null || getClass() != o.getClass()) return false;
         Car car = (Car) o;
         return maxSpeed == car.maxSpeed &&
-                id == car.id &&
                 weight == car.weight &&
                 price == car.price &&
                 year == car.year &&
@@ -87,7 +86,7 @@ public class Car extends Transport {
 
     @Override
     public int hashCode() {
-        return Objects.hash(type, maxSpeed, id, weight, price, carOwner, year);
+        return Objects.hash(type, maxSpeed, weight, price, carOwner, year);
     }
 
 }//end of class
