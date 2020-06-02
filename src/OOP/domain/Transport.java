@@ -1,4 +1,4 @@
-package Homework4.domain;
+package OOP.domain;
 
 public class Transport extends Technology implements TransportTrading {
     protected int weight = 1;

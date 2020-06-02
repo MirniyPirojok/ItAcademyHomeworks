@@ -1,4 +1,4 @@
-package Homework4.domain;
+package OOP.domain;
 
 public interface TransportTrading {
     void raisePrice(int i);

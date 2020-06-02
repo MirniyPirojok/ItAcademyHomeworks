@@ -1,25 +1,19 @@
-package Homework4;
+package OOP;
 
-import Homework4.domain.Car;
-import Homework4.domain.SortBy;
-import Homework4.domain.SumOf;
-import Homework4.domain.Transport;
+import OOP.domain.Car;
+import OOP.domain.SortBy;
+import OOP.domain.SumOf;
+import OOP.domain.Transport;
 
-import static Homework4.util.CarsUtil.countSum;
-import static Homework4.util.CarsUtil.generateCars;
-import static Homework4.util.CarsUtil.showCars;
-import static Homework4.util.CarsUtil.sortCars;
+import static OOP.util.CarsUtil.countSum;
+import static OOP.util.CarsUtil.generateCars;
+import static OOP.util.CarsUtil.showCars;
+import static OOP.util.CarsUtil.sortCars;
 
 
 public class DemoCars {
     public static void main(String[] args) {
         int carsNumber = 6; // SHOULD BE AT LEAST 6 TO CHECK ALL FUNCTIONALITY!!! or you need change output in main()
-//        String sortCarsById = "sortCarsById",
-//                sortCarsByWeight = "sortCarsByWeight",
-//                sortCarsByMaxSpeed = "sortCarsByMaxSpeed",
-//                sortCarsByPrice = "sortCarsByPrice";
-        String sumOfWeights = "sumOfWeights",
-                sumOfPrices = "sumOfPrices";
 
         Car[] cars = generateCars(carsNumber);
 

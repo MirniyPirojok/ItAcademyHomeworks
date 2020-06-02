@@ -1,8 +1,8 @@
-package Homework4.util;
+package OOP.util;
 
-import Homework4.domain.Car;
-import Homework4.domain.SortBy;
-import Homework4.domain.SumOf;
+import OOP.domain.Car;
+import OOP.domain.SortBy;
+import OOP.domain.SumOf;
 
 import java.util.Random;
 

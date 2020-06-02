@@ -1,4 +1,4 @@
-package Homework4.domain;
+package OOP.domain;
 
 public enum CarType {
     SEDAN("Sedan"), JEEP("Jeep"), TRUCK("Truck");
