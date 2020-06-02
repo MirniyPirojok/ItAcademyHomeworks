@@ -1,6 +1,8 @@
 package Homework4.util;
 
 import Homework4.domain.Car;
+import Homework4.domain.SortBy;
+import Homework4.domain.SumOf;
 
 import java.util.Random;
 
@@ -47,18 +49,18 @@ public class CarsUtil {
 
     //sort by criteria
     //choose sort criteria
-    public static void sortCars(Car[] cars, String criteria) {
+    public static void sortCars(Car[] cars, SortBy criteria) {
         switch (criteria) {
-            case "sortCarsById":
+            case ID:
                 sortCarsById(cars);
                 break;
-            case "sortCarsByWeight":
+            case WEIGHT:
                 sortCarsByWeight(cars);
                 break;
-            case "sortCarsByMaxSpeed":
+            case MAXSPEED:
                 sortCarsByMaxSpeed(cars);
                 break;
-            case "sortCarsByPrice":
+            case PRICE:
                 sortCarsByPrice(cars);
                 break;
             default:
@@ -124,12 +126,12 @@ public class CarsUtil {
 
     //count sum by criteria
     //choose sum criteria
-    public static void countSum(Car[] cars, String criteria) {
+    public static void countSum(Car[] cars, SumOf criteria) {
         switch (criteria) {
-            case "sumOfWeights":
+            case WEIGHTS:
                 sumOfWeights(cars);
                 break;
-            case "sumOfPrices":
+            case PRICES:
                 sumOfPrices(cars);
                 break;
             default:

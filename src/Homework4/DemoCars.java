@@ -1,6 +1,8 @@
 package Homework4;
 
 import Homework4.domain.Car;
+import Homework4.domain.SortBy;
+import Homework4.domain.SumOf;
 import Homework4.domain.Transport;
 
 import static Homework4.util.CarsUtil.countSum;
@@ -12,10 +14,10 @@ import static Homework4.util.CarsUtil.sortCars;
 public class DemoCars {
     public static void main(String[] args) {
         int carsNumber = 6; // SHOULD BE AT LEAST 6 TO CHECK ALL FUNCTIONALITY!!! or you need change output in main()
-        String sortCarsById = "sortCarsById",
-                sortCarsByWeight = "sortCarsByWeight",
-                sortCarsByMaxSpeed = "sortCarsByMaxSpeed",
-                sortCarsByPrice = "sortCarsByPrice";
+//        String sortCarsById = "sortCarsById",
+//                sortCarsByWeight = "sortCarsByWeight",
+//                sortCarsByMaxSpeed = "sortCarsByMaxSpeed",
+//                sortCarsByPrice = "sortCarsByPrice";
         String sumOfWeights = "sumOfWeights",
                 sumOfPrices = "sumOfPrices";
 
@@ -23,17 +25,17 @@ public class DemoCars {
 
         //check CarsUtil methods
         showCars(cars);
-        sortCars(cars, sortCarsByWeight);
+        sortCars(cars, SortBy.WEIGHT);
         showCars(cars);
 
-        sortCars(cars, sortCarsByMaxSpeed);
+        sortCars(cars, SortBy.MAXSPEED);
         showCars(cars);
 
-        sortCars(cars, sortCarsById);
+        sortCars(cars, SortBy.ID);
         showCars(cars);
 
-        countSum(cars, sumOfPrices);
-        countSum(cars, sumOfWeights);
+        countSum(cars, SumOf.PRICES);
+        countSum(cars, SumOf.WEIGHTS);
 
         //check Car methods
         cars[0].upgrade(11);
@@ -62,7 +64,7 @@ public class DemoCars {
         cars[5].setPrice(2000);
 
 
-        sortCars(cars, sortCarsByPrice);
+        sortCars(cars, SortBy.PRICE);
         showCars(cars);
 
         //check working of equals and hashCode
