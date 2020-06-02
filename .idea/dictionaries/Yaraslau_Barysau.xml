@@ -2,6 +2,7 @@
   <dictionary name="Yaraslau Barysau">
     <words>
       <w>maxspeed</w>
+      <w>roadoff</w>
       <w>sortcarsbyid</w>
       <w>sortcarsbymaxspeed</w>
       <w>sortcarsbyprice</w>

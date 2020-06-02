@@ -1,6 +1,7 @@
 package OOP.util;
 
 import OOP.domain.Car;
+import OOP.domain.CarType;
 import OOP.domain.SortBy;
 import OOP.domain.SumOf;
 
@@ -18,15 +19,15 @@ public class CarsUtil {
     public static void defineCarType(Car car) {
         switch (car.getWeight()) {
             case 1:
-                car.setType("sedan");
+                car.setType(CarType.SEDAN);
                 car.setMaxSpeed(180);
                 break;
             case 2:
-                car.setType("jeep");
+                car.setType(CarType.JEEP);
                 car.setMaxSpeed(160);
                 break;
             case 3:
-                car.setType("truck");
+                car.setType(CarType.TRUCK);
                 car.setMaxSpeed(140);
                 break;
         }

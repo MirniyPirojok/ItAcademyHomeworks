@@ -1,7 +1,7 @@
 package OOP.domain;
 
 public enum CarType {
-    SEDAN("Sedan"), JEEP("Jeep"), TRUCK("Truck");
+    SEDAN("Passenger car"), JEEP("Roadoff car "), TRUCK("Freight car");
 
     private String typeDescription;
 
@@ -11,11 +11,5 @@ public enum CarType {
 
     public String getTypeDescription() {
         return typeDescription;
-    }
-
-    public static void printAllValues(){
-        for (CarType value: CarType.values()) {
-            System.out.println(value + ": " + value.getTypeDescription());
-        }
     }
 }//end of class

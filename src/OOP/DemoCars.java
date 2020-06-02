@@ -1,6 +1,7 @@
 package OOP;
 
 import OOP.domain.Car;
+import OOP.domain.CarType;
 import OOP.domain.SortBy;
 import OOP.domain.SumOf;
 import OOP.domain.Transport;
@@ -48,12 +49,12 @@ public class DemoCars {
                 " equal to check equals() and hashCode().");
 
         cars[4].setWeight(3);
-        cars[4].setType("truck");
+        cars[4].setType(CarType.TRUCK);
         cars[4].setMaxSpeed(160);
         cars[4].setPrice(2000);
 
         cars[5].setWeight(3);
-        cars[5].setType("truck");
+        cars[5].setType(CarType.TRUCK);
         cars[5].setMaxSpeed(160);
         cars[5].setPrice(2000);
 

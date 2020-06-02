@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class Car extends Transport {
     private final static String carOwner = "Yaroslav";
-    private String type;
+    private CarType type;
     private int maxSpeed;
     private int id;
 
@@ -14,7 +14,7 @@ public class Car extends Transport {
         this.id = id;
     }
 
-    public Car(int weight, int price, int maxSpeed, String type) {
+    public Car(int weight, int price, int maxSpeed, CarType type) {
         super(weight, price);
         this.type = type;
         this.maxSpeed = maxSpeed;
@@ -32,11 +32,11 @@ public class Car extends Transport {
         this.maxSpeed = maxSpeed;
     }
 
-    public String getType() {
+    public CarType getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(CarType type) {
         this.type = type;
     }
 
@@ -62,9 +62,10 @@ public class Car extends Transport {
 
     @Override
     public String toString() {
-        return "Car #" + id + ": " +
-                "carOwner='" + carOwner + '\'' +
-                ", type='" + type + '\'' +
+        return "Car #" + id + ". " +
+                "CarOwner: " + carOwner +
+                ", type:" + type +
+                "("+ type.getTypeDescription()+")" +
                 ", maxSpeed=" + maxSpeed +
                 ", weight=" + weight +
                 ", price=" + price +
