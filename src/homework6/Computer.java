@@ -1,14 +1,15 @@
 package homework6;
 
 public class Computer {
-    public int weight;
+    public int price;
     private PowerSupply powerSupply;
 
     public Computer() {
     }
 
-    public Computer(int weight) {
-        this.weight = weight;
+    public Computer(int price) {
+        this.price = price;
+        this.powerSupply = new PowerSupply();
     }
 
     public PowerSupply getPowerSupply() {
@@ -19,17 +20,50 @@ public class Computer {
         this.powerSupply = powerSupply;
     }
 
+    public int getPrice() {
+        return price;
+    }
+
+    //task 6.2 Create local class, create method and call method через вызов метода, внутри которого описан класс
+    public void setPrice(int price) {
+        //crate local class
+        class Price {
+            private int price;
+
+            public Price(int price) {
+                this.price = price;
+            }
+
+            public int getPrice() {
+                return price;
+            }
+
+            public void setPrice(int price) {
+                this.price = price;
+            }
+        }
+        this.price = new Price(price).getPrice();
+    }
+
+    @Override
+    public String toString() {
+        return "Computer{" +
+                "weight=" + price +
+                ", powerSupply=" + powerSupply +
+                '}';
+    }
+
+    // Inner class
     class PowerSupply {
         public static final String OWNER = "Yaroslav";
         public String model;
-        private Integer price;
+
 
         public PowerSupply() {
         }
 
-        public PowerSupply(String model, Integer price) {
+        public PowerSupply(String model) {
             this.model = model;
-            this.price = price;
         }
 
         public String getModel() {
@@ -40,12 +74,5 @@ public class Computer {
             this.model = model;
         }
 
-        public Integer getPrice() {
-            return price;
-        }
-
-        public void setPrice(Integer price) {
-            this.price = price;
-        }
     }//end of inner class
 }//end of class
