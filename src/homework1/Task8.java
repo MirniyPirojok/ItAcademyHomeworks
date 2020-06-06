@@ -25,7 +25,7 @@ public class Task8 {
                 System.out.println(i + ": October");
             else if (i == 11)
                 System.out.println(i + ": November");
-            else if (i == 12)
+            else
                 System.out.println(i + ": December");
         }
     }

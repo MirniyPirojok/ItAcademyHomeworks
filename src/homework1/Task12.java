@@ -5,14 +5,16 @@ public class Task12 {
         boolean var1 = true;
         boolean var2 = false;
 
-        if (var1)
+        if (var1) {
             System.out.println("истина");
-        else
+        } else {
             System.out.println("ложь");
+        }
 
-        if (var2)
+        if (var2) {
             System.out.println("истина");
-        else
+        } else {
             System.out.println("ложь");
+        }
     }
 }

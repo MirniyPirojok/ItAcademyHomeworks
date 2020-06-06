@@ -1,4 +1,4 @@
-package homework3.CarUtil;
+package homework3.util;
 
 import homework3.domain.Car;
 
@@ -24,6 +24,8 @@ public class CarUtil {
             case 3:
                 car.setType("truck");
                 break;
+            default:
+                throw new IllegalStateException("Unexpected value: " + car.getWeight());
         }
     }
 }//end of class

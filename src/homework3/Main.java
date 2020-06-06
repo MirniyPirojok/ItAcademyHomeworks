@@ -5,7 +5,7 @@
 
 package homework3;
 
-import homework3.CarUtil.CarUtil;
+import homework3.util.CarUtil;
 
 public class Main {
     public static void main(String[] args) {

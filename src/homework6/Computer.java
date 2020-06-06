@@ -1,7 +1,7 @@
 package homework6;
 
 public class Computer {
-    public int price;
+    private int price;
     private PowerSupply powerSupply;
 
     public Computer() {

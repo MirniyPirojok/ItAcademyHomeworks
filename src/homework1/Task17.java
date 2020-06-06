@@ -3,7 +3,7 @@ package homework1;
 public class Task17 {
     public static void main(String[] args) {
         int n = HomeworkUtil.generateArraySize();
-        double arr[] = new double[n];
+        double[] arr = new double[n];
 
         // arr filling
         System.out.print("Array numbers:");
@@ -14,9 +14,9 @@ public class Task17 {
 
         // searching max element
         double max = 0;
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] > max)
-                max = arr[i];
+        for (double v : arr) {
+            if (v > max)
+                max = v;
         }
         System.out.print("\nMaximum: " + (int) max);
 

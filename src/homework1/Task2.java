@@ -3,7 +3,7 @@ package homework1;
 public class Task2 {
     public static void main(String[] args) {
         int n = HomeworkUtil.generateArraySize(); //array size
-        double arr[] = new double[n];
+        double[] arr = new double[n];
 
         // array filling
         System.out.print("Default array:");
@@ -17,13 +17,13 @@ public class Task2 {
 
         // print changed array        
         System.out.print("\nChanged array:");
-        for (int i = 0; i < arr.length; i++) {
-            System.out.print(" " + arr[i]);
+        for (double v : arr) {
+            System.out.print(" " + v);
         }
     }
 
     // increase elements on 10%
-    public static void increaseArr(double arr[]) {
+    public static void increaseArr(double[] arr) {
         final float multiplier = 0.1f;
         for (int i = 0; i < arr.length; i++) {
             arr[i] += arr[i] * multiplier;
