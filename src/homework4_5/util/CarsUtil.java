@@ -3,7 +3,10 @@ package homework4_5.util;
 import homework4_5.domain.Car;
 import homework4_5.domain.SortBy;
 import homework4_5.domain.SumOf;
+import homework4_5.domain.Transport;
 
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Random;
 
 import static homework4_5.domain.CarType.JEEP;
@@ -34,6 +37,8 @@ public class CarsUtil {
                 car.setType(TRUCK);
                 car.setMaxSpeed(140);
                 break;
+            default:
+                throw new IllegalStateException("Unexpected value: " + car.getWeight());
         }
     }
 
@@ -57,75 +62,23 @@ public class CarsUtil {
     public static void sortCars(Car[] cars, SortBy criteria) {
         switch (criteria) {
             case ID:
-                sortCarsById(cars);
+                System.out.println("\nCars were sorted by id: ");
+                Arrays.sort(cars, Comparator.comparing(Car::getId));
                 break;
             case WEIGHT:
-                sortCarsByWeight(cars);
+                System.out.println("\nCars were sorted by weight: ");
+                Arrays.sort(cars, Comparator.comparing(Car::getWeight));
                 break;
             case MAXSPEED:
-                sortCarsByMaxSpeed(cars);
+                System.out.println("\nCars were sorted by max speed: ");
+                Arrays.sort(cars, Comparator.comparing(Car::getMaxSpeed));
                 break;
             case PRICE:
-                sortCarsByPrice(cars);
+                System.out.println("\nCars were sorted by price: ");
+                Arrays.sort(cars, Comparator.comparing(Car::getPrice));
                 break;
             default:
                 throw new IllegalStateException("Unexpected value: " + criteria);
-        }
-    }
-
-    public static void sortCarsById(Car[] cars) {
-        System.out.println("\nCars were sorted by id: ");
-        Car temp;
-        for (int i = 0; i < cars.length; i++) {
-            for (int j = 0; j < cars.length - 1 - i; j++) {
-                if (cars[j].getId() > cars[j + 1].getId()) {
-                    temp = cars[j];
-                    cars[j] = cars[j + 1];
-                    cars[j + 1] = temp;
-                }
-            }
-        }
-    }
-
-    public static void sortCarsByWeight(Car[] cars) {
-        System.out.println("\nCars were sorted by weight: ");
-        Car temp;
-        for (int i = 0; i < cars.length; i++) {
-            for (int j = 0; j < cars.length - 1 - i; j++) {
-                if (cars[j].getWeight() > cars[j + 1].getWeight()) {
-                    temp = cars[j];
-                    cars[j] = cars[j + 1];
-                    cars[j + 1] = temp;
-                }
-            }
-        }
-    }
-
-    public static void sortCarsByMaxSpeed(Car[] cars) {
-        System.out.println("\nCars were sorted by max speed: ");
-        Car temp;
-        for (int i = 0; i < cars.length; i++) {
-            for (int j = 0; j < cars.length - 1 - i; j++) {
-                if (cars[j].getMaxSpeed() > cars[j + 1].getMaxSpeed()) {
-                    temp = cars[j];
-                    cars[j] = cars[j + 1];
-                    cars[j + 1] = temp;
-                }
-            }
-        }
-    }
-
-    public static void sortCarsByPrice(Car[] cars) {
-        System.out.println("\nCars were sorted by price: ");
-        Car temp;
-        for (int i = 0; i < cars.length; i++) {
-            for (int j = 0; j < cars.length - 1 - i; j++) {
-                if (cars[j].getPrice() > cars[j + 1].getPrice()) {
-                    temp = cars[j];
-                    cars[j] = cars[j + 1];
-                    cars[j + 1] = temp;
-                }
-            }
         }
     }
 
@@ -159,6 +112,4 @@ public class CarsUtil {
         }
         System.out.println("\nTotal price of all cars = " + sum);
     }
-
-
 }//end of class
