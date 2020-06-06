@@ -15,9 +15,11 @@ public class Task16 {
         System.out.print("Enter step: ");
         int step = in.nextInt();
 
+        in.close();
+
         System.out.print("Natural numbers: ");
-        for (int i = min; i <= max ; i+=step) {
-            System.out.print(i+ " " );
+        for (int i = min; i <= max; i += step) {
+            System.out.print(i + " ");
         }
     }
 }

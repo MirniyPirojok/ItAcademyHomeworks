@@ -2,7 +2,6 @@ package homework1;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-
 import java.util.Scanner;
 
 public class Task18 {
@@ -15,13 +14,15 @@ public class Task18 {
         System.out.print("Enter how much one dollar costs: ");
         double rate = in.nextDouble();
 
+        in.close();
+
         double dollars = exchange(rubles, rate);
         System.out.println("Dollars amount will be: " + dollars);
 
     }
 
     private static double exchange(double rubles, double rate) {
-        double dollars = rubles/rate;
+        double dollars = rubles / rate;
         dollars = new BigDecimal(dollars).setScale(2, RoundingMode.HALF_UP).doubleValue();
         return dollars;
     }

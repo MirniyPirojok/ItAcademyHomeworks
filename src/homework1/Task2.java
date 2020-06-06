@@ -2,14 +2,14 @@ package homework1;
 
 public class Task2 {
     public static void main(String[] args) {
-        int n = (int) (Math.random() * 10); //array size
+        int n = HomeworkUtil.generateArraySize(); //array size
         double arr[] = new double[n];
 
         // array filling
         System.out.print("Default array:");
         for (int i = 0; i < arr.length; i++) {
-            arr[i] = (int) (Math.random() * 100 + 1);
-            System.out.print(" " + (int) arr[i]);
+            arr[i] = HomeworkUtil.generateDoubleValue();
+            System.out.print(" " + arr[i]);
         }
 
         // arr changing
@@ -22,10 +22,12 @@ public class Task2 {
         }
     }
 
-    // array changing method
+    // increase elements on 10%
     public static void increaseArr(double arr[]) {
+        final float multiplier = 0.1f;
         for (int i = 0; i < arr.length; i++) {
-            arr[i] += arr[i] * 0.1;
+            arr[i] += arr[i] * multiplier;
         }
     }
+
 }

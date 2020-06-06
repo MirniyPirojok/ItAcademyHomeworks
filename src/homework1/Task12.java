@@ -6,9 +6,9 @@ public class Task12 {
         boolean var2 = false;
 
         if (var1)
-        System.out.println("истина");
+            System.out.println("истина");
         else
-        System.out.println("ложь");
+            System.out.println("ложь");
 
         if (var2)
             System.out.println("истина");

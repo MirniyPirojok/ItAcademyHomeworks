@@ -12,18 +12,19 @@ public class Task3 {
     }
 
     //method palindrome checking
-    public static void isPalindrome(String num){
+    public static void isPalindrome(String num) {
         char arr[] = num.toCharArray();
         boolean isPalindrome = true;
-        for (int i = 0; i < arr.length/2 ; i++) {
-            if (arr[i] != arr[arr.length-i-1]) {
+        for (int i = 0; i < arr.length / 2; i++) {
+            if (arr[i] != arr[arr.length - i - 1]) {
                 isPalindrome = false;
                 break;
             }
         }
-        if(isPalindrome)
+        if (isPalindrome) {
             System.out.println("Number is palindrome.");
-        else
+        } else {
             System.out.println("Number is not palindrome.");
+        }
     }
 }
