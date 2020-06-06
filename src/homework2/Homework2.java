@@ -1,34 +1,36 @@
 package homework2;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
+
+import static homework2.Homework2Util.bubbleSort;
+import static homework2.Homework2Util.calcSum;
+import static homework2.Homework2Util.findDuplicate;
+import static homework2.Homework2Util.printArray;
+import static homework2.Homework2Util.printMatrix;
 
 public class Homework2 {
 
     /*enter data*/
-    private static int[] numArray = {1, 1, 1, 1, 7, 3, 4, 6, 4, 5, 8, 9, 7, 3, 4, 6, 4, 5, 8, 9};
+    private static Integer[] numArray = {1, 1, 1, 1, 7, 3, 4, 6, 4, 5, 8, 9, 7, 3, 4, 6, 4, 5, 8, 9};
     // just a set of numbers if you lazy to enter with your own hands:
     // {1, 10, 10, 10, 1, 1, 1, 7, 3, 4, 6, 4, 5, 8, 9, 7, 3, 4, 6, 4, 5, 8, 9};
 
-    private static String[] strArray = {"bbb", "ddd", "ccc", "fff", "aaa", "eee", "jjj", "ccc"};
-
+    private static final String[] strArray = {"bbb", "ddd", "ccc", "fff", "aaa", "eee", "jjj", "ccc"};
 
     public static void main(String[] args) {
 
         // show numbers array
         System.out.print("\nDefault array of numbers: ");
-        for (int value : numArray) {
-            System.out.print(value + " ");
-        }
+        printArray(numArray);
 
         // show strings array
         System.out.print("\nDefault array of strings: ");
-        for (String s : strArray) {
-            System.out.print("\"" + s + "\" ");
-        }
+        printArray(strArray);
 
-        /*call methods*/
+        //call methods
         task1(numArray, strArray);
         task2(numArray);
         task4(numArray);
@@ -46,91 +48,53 @@ public class Homework2 {
         task16(numArray);
         task17(numArray);
         task18(numArray);
-        task19(numArray);
+        task19();
         task20(strArray, numArray);
-
     }
-
-    public static void bubbleSort(int[] numArray) {
-        // numbers array sorting
-        int numTemp;
-        for (int i = 0; i < numArray.length; i++) {
-            for (int j = 0; j < numArray.length - 1 - i; j++) {
-                if (numArray[j] > numArray[j + 1]) {
-                    numTemp = numArray[j + 1];
-                    numArray[j + 1] = numArray[j];
-                    numArray[j] = numTemp;
-                }
-            }
-        }
-    }
-
-    public static void bubbleSort(String[] strArray) {
-        // strings array sorting
-        String strTemp;
-        for (int i = 0; i < strArray.length; i++) {
-            for (int j = 0; j < strArray.length - 1 - i; j++) {
-                if (strArray[j].compareTo(strArray[j + 1]) > 0) {
-                    strTemp = strArray[j + 1];
-                    strArray[j + 1] = strArray[j];
-                    strArray[j] = strTemp;
-                }
-            }
-        }
-    }
-
 
     /*Task 1. Write a Java program to sort a numeric array and a string array.*/
-    public static void task1(int[] numArray, String[] strArray) {
+    public static void task1(Integer[] numArray, String[] strArray) {
         System.out.println("\n\n***Task 1. Write a Java program to sort a numeric array and a string array.***");
 
         bubbleSort(numArray);
         System.out.print("Sorted array of numbers : ");
-        for (int value : numArray) {
-            System.out.print(value + " ");
-        }
+        printArray(numArray);
 
         bubbleSort(strArray);
         System.out.print("\nSorted array of strings : ");
-        for (String s : strArray) {
-            System.out.print("\"" + s + "\"" + " ");
-        }
+        printArray(strArray);
     }
 
     /*Task 2. Write a Java program to sum values of an array.*/
-    public static void task2(int[] numArray) {
+    public static void task2(Integer[] numArray) {
         System.out.println("\n\n***Task 2. Write a Java program to sum values of an array.***");
-        int sum = 0;
-        for (int i :
-                numArray) {
-            sum += i;
-        }
+
+        int sum = calcSum(numArray);
+
         System.out.println("Sum values of an array: " + sum);
     }
 
     /*Task 4. Write a Java program to calculate the average value of array elements.*/
-    public static void task4(int[] numArray) {
+    public static void task4(Integer[] numArray) {
         System.out.println("\n***Task 4. Write a Java program to calculate the average value of array elements.***");
-        int sum = 0;
 
-        for (int value : numArray) {
-            sum += value;
-        }
+        int sum = calcSum(numArray);
+
         double average = (double) sum / numArray.length;
 
         System.out.println("Average value: " + average);
     }
 
     /*Task 5.  Write a Java program to test if an array contains a specific value.*/
-    public static void task5(int[] numArray) {
+    public static void task5(Integer[] numArray) {
         System.out.println("\n***Task 5. Write a Java program to test if an array contains a specific value.***");
         System.out.println("Enter any number: ");
 
         Scanner input = new Scanner(System.in);
         int specificValue = input.nextInt();
 
+        //check if array contains specific value
         boolean checker = false;
-
         for (int value : numArray) {
             if (value == specificValue) {
                 System.out.println("Yes, array contains such value.");
@@ -144,7 +108,7 @@ public class Homework2 {
     }
 
     /*Task 6.  Write a Java program to find the index of an array element.*/
-    public static void task6(int[] numArray) {
+    public static void task6(Integer[] numArray) {
         System.out.println("\n***Task 6. Write a Java program to find the index of an array element.***");
         System.out.println("Enter one of the values from array: ");
         Scanner input = new Scanner(System.in);
@@ -167,7 +131,7 @@ public class Homework2 {
     }
 
     /*Task 7.  Write a Java program to remove a specific element from an array.*/
-    public static void task7(int[] oldArray) {
+    public static void task7(Integer[] oldArray) {
         System.out.println("\n***Task 7.  Write a Java program to remove a specific element from an array.***");
 
         System.out.println("Enter value for removing: ");
@@ -176,7 +140,7 @@ public class Homework2 {
         int sizeNewArray = oldArray.length;
 
 
-        // move values in the end of the oldArray
+        // move specific values in the end of the oldArray
         for (int j = 0; j < oldArray.length; j++) {
             for (int i = 0; i < oldArray.length - 1; i++) {
                 if (oldArray[i] == specificElement) {
@@ -191,21 +155,24 @@ public class Homework2 {
             if (value == specificElement) sizeNewArray--;
         }
 
-        int[] newArray = new int[sizeNewArray];
+        // make new array with size that equal old array without specific values
+        Integer[] newArray = new Integer[sizeNewArray];
 
-        if (sizeNewArray == oldArray.length) {
+        if (sizeNewArray == oldArray.length) { //if array equals it means that specific value wasn't found
             System.out.println("Such value doesn't exist in this array. Please, enter correct value next time.");
-            numArray = oldArray;
+            newArray = oldArray;
         } else {
+            // copy old array in the new array,
+            // specific values will be not copied because new array size is less than old array
             if (sizeNewArray >= 0) System.arraycopy(oldArray, 0, newArray, 0, sizeNewArray);
         }
 
+        //output new array
         if (newArray.length != 0) {
             System.out.print("Now array contains: ");
-            for (int i : newArray) {
-                System.out.print(" " + i);
-            }
+            printArray(newArray);
         } else {
+            //if old array contained only specific values than new array is empty
             System.out.println("Array is empty");
         }
 
@@ -213,9 +180,9 @@ public class Homework2 {
     }
 
     /*Task 8.  Write a Java program to copy an array by iterating the array.*/
-    public static void task8(int[] oldArray) {
+    public static void task8(Integer[] oldArray) {
         System.out.println("\n\n***Task 8.  Write a Java program to copy an array by iterating the array.***");
-        int[] newArray = new int[oldArray.length];
+        Integer[] newArray = new Integer[oldArray.length];
         int i = 0;
 
         for (int value : oldArray) {
@@ -225,16 +192,14 @@ public class Homework2 {
 
         // show newArray values
         System.out.print("Copy is done. New array: ");
-        for (int value : newArray) {
-            System.out.print(value + " ");
-        }
+        printArray(newArray);
     }
 
     /*Task 9.  Write a Java program to insert an element (specific position) into an array.*/
-    public static void task9(int[] oldArray) {
+    public static void task9(Integer[] oldArray) {
         System.out.println("\n\n***Task 9.Write a Java program to insert an element (specific position) into an array.***");
         Scanner input = new Scanner(System.in);
-        int[] newArray = new int[oldArray.length + 1];
+        Integer[] newArray = new Integer[oldArray.length + 1];
 
         System.out.println("Enter a new value: ");
         int newValue = input.nextInt();
@@ -243,8 +208,8 @@ public class Homework2 {
 
         System.arraycopy(oldArray, 0, newArray, 0, oldArray.length);
 
-        //Check if position number is not more and not less than array size.
-        // Add new number into the required position into the new array.
+        //Check if position number is not more and not less than array size,
+        // add new number into the required position into the new array.
         if (position < newArray.length) {
             if (newArray.length - 1 - position >= 0) {
                 System.arraycopy(newArray, position, newArray, position + 1, newArray.length - 1 - position);
@@ -252,34 +217,33 @@ public class Homework2 {
             newArray[position] = newValue;
 
             System.out.print("Now array contains: ");
-            for (int value : newArray) {
-                System.out.print(value + " ");
-            }
+            printArray(newArray);
+            numArray = newArray;
+
         } else {
-            System.out.println("Position number is too big. Please, enter correct number next time.");
+            System.out.print("Position number is too big. Please, enter correct number next time.");
         }
-        numArray = newArray;
     }
 
     /*Task 10. Write a Java program to find the maximum and minimum value of an array.*/
-    public static void task10(int[] numArray) {
+    public static void task10(Integer[] numArray) {
         System.out.println("\n\n***Task 10. Write a Java program to find the maximum and minimum value of an array.***");
         int max = numArray[0];
         int min = numArray[0];
 
-        for (int i = 0; i < numArray.length; i++) {
-            if (numArray[i] > max) {
-                max = numArray[i];
+        for (Integer integer : numArray) {
+            if (integer > max) {
+                max = integer;
             }
-            if (numArray[i] < min) {
-                min = numArray[i];
+            if (integer < min) {
+                min = integer;
             }
         }
         System.out.println("Maximum value: " + max + ". Minimum value: " + min + ".");
     }
 
     /*Task 11. Write a Java program to reverse an array of integer values.*/
-    public static void task11(int[] array) {
+    public static void task11(Integer[] array) {
         System.out.println("\n***Task 11. Write a Java program to reverse an array of integer values.***");
 
         for (int i = 0; i < array.length / 2; i++) {
@@ -289,73 +253,27 @@ public class Homework2 {
         }
 
         System.out.print("Reversed array:");
-        for (int value : array) {
-            System.out.print(" " + value);
-        }
+        printArray(array);
+
         numArray = array;
     }
 
     /*Task 12. Write a Java program to find the duplicate values of an array of integer values.*/
-    public static void task12(int[] numArray) {
+    public static void task12(Integer[] numArray) {
         System.out.println("\n\n***Task 12. Write a Java program to find the duplicate values of an array of integer values.***");
 
-        // sort array
         bubbleSort(numArray);
 
-        // find duplicates
-        boolean duplicateCheck = false;
-        System.out.print("Next values have duplicate:");
-
-        if (numArray[0] == numArray[numArray.length - 1]) { //output number if there is only one element in the array
-            System.out.print(" " + numArray[0]);
-        } else {
-            //checking if the number has duplicates among neighbors
-            for (int i = 1; i < numArray.length - 1; i++) {
-                boolean isEqualPrevious = numArray[i] == numArray[i - 1];
-                boolean isNotEqualNext = numArray[i] != numArray[i + 1];
-                boolean isNotEqualPrevious = numArray[i] != numArray[i - 1];
-                boolean isEqualLast = numArray[i] == numArray[numArray.length - 1];
-                if (isEqualPrevious && isNotEqualNext || isNotEqualPrevious && isEqualLast) {
-                    System.out.print(" " + numArray[i]);
-                    duplicateCheck = true;
-                }
-            }
-            if (!duplicateCheck) {
-                System.out.print(" Sorry, no duplicates.");
-            }
-        }
+        findDuplicate(numArray);
     }
 
     /*Task 13. Write a Java program to find the duplicate values of an array of string values.*/
-    static public void task13(String[] strArray) {
+    public static void task13(String[] strArray) {
         System.out.println("\n\n***Task 13. Write a Java program to find the duplicate values of an array of string values.***");
 
-        // strings array sorting
         bubbleSort(strArray);
 
-        // find duplicates
-        boolean duplicateCheck = false;
-        System.out.print("Next values have duplicate:");
-
-        if (strArray[0].equals(strArray[strArray.length - 1])) {//output string if there is only one element in the array
-            System.out.print(" " + strArray[0]);
-        } else {
-            //checking if the string has duplicates among neighbors
-            for (int i = 1; i < strArray.length - 1; i++) {
-                boolean isEqualPrevious = strArray[i].equals(strArray[i - 1]);
-                boolean isNotEqualNext = !strArray[i].equals(strArray[i + 1]);
-                boolean isNotEqualPrevious = !strArray[i].equals(strArray[i - 1]);
-                boolean isEqualLast = strArray[i].equals(strArray[strArray.length - 1]);
-                if (isEqualPrevious && isNotEqualNext || isNotEqualPrevious && isEqualLast) {
-                    System.out.print(" " + strArray[i]);
-                    duplicateCheck = true;
-                }
-            }
-            if (!duplicateCheck) {
-                System.out.print(" Sorry, no duplicates.");
-            }
-        }
-
+        findDuplicate(strArray);
     }
 
     /*Task 14. Write a Java program to find the common elements between two arrays (string values).*/
@@ -369,9 +287,7 @@ public class Homework2 {
         String[] secondArray = {"ooo", "bbb", "aaa", "kkk", "lll"};
 
         System.out.print("Array for comparison: ");
-        for (String value : secondArray) {
-            System.out.print(" \"" + value + "\"");
-        }
+        printArray(secondArray);
 
         // strings second array sorting
         bubbleSort(secondArray);
@@ -387,7 +303,7 @@ public class Homework2 {
     }
 
     /*Task 15. Write a Java program to find the common elements between two arrays of integers.*/
-    public static void task15(int[] firstArray) {
+    public static void task15(Integer[] firstArray) {
         System.out.println("\n\n***Task 15. Write a Java program to find the common elements between two arrays of integers.***");
 
 
@@ -395,11 +311,9 @@ public class Homework2 {
         bubbleSort(firstArray);
 
         //create second array for comparison
-        int[] secondArray = {4, 6, 2, 3, 4, 68, 2, 1, 10, 10, 1}; // {1, 1, 1, 1, 1}
+        Integer[] secondArray = {4, 6, 2, 3, 4, 68, 2, 1, 10, 10, 1}; // {1, 1, 1, 1, 1}
         System.out.print("Array for comparison:");
-        for (int value : secondArray) {
-            System.out.print(" " + value);
-        }
+        printArray(secondArray);
 
         // second array sorting
         bubbleSort(secondArray);
@@ -408,23 +322,24 @@ public class Homework2 {
         System.out.print("\nNext values are common:");
         for (int i = 0; i < firstArray.length - 1; i++) {
             for (int j = 0; j < secondArray.length - 1; j++) {
-                if (firstArray[i] == secondArray[j] && secondArray[j] != secondArray[j + 1] && firstArray[i] != firstArray[i + 1]) {
+
+                if (firstArray[i].equals(secondArray[j]) &&
+                        !secondArray[j].equals(secondArray[j + 1]) &&
+                        !firstArray[i].equals(firstArray[i + 1])) {
                     System.out.print(" " + firstArray[i]);
                 }
             }
         }
 
         for (int i = 0; i < secondArray.length - 1; i++) {
-            if (firstArray[firstArray.length - 1] == secondArray[i] && secondArray[i] != secondArray[i + 1]) {
+            if (firstArray[firstArray.length - 1].equals(secondArray[i]) && !secondArray[i].equals(secondArray[i + 1])) {
                 System.out.print(" " + secondArray[i]);
             }
         }
-
-
     }
 
     /*Task 16. Write a Java program to remove duplicate elements from an array.*/
-    public static void task16(int[] array) {
+    public static void task16(Integer[] array) {
         System.out.println("\n\n***Task 16. Write a Java program to remove duplicate elements from an array.***");
 
         // sort array
@@ -435,12 +350,12 @@ public class Homework2 {
 //        System.out.print("Next values have duplicate:");
 
         //find how many duplicates
-        if (array[0] == array[array.length - 1]) {
+        if (array[0].equals(array[array.length - 1])) {
             System.out.print(" " + array[0]);
             duplicateQuantity = array.length - 1;
         } else {
             for (int i = 1; i < array.length - 1; i++) {
-                if (array[i] == array[i - 1] || array[i] == array[array.length - 1]) {
+                if (array[i].equals(array[i - 1]) || array[i].equals(array[array.length - 1])) {
                     duplicateQuantity++;
                 }
             }
@@ -451,36 +366,35 @@ public class Homework2 {
 
         //create new array
         int size = array.length - duplicateQuantity;
-        int[] newArray = new int[size];
+        Integer[] newArray = new Integer[size];
 
         //fill new array
-        if (array[0] == array[array.length - 1]) {
+        if (array[0].equals(array[array.length - 1])) {
             newArray[0] = array[0];
         } else {
             newArray[0] = array[0];
             int j = 1;
             for (int i = 1; i < array.length; i++) {
-                if (array[i] != array[i - 1]) {
+                if (!array[i].equals(array[i - 1])) {
                     newArray[j++] = array[i];
                 }
             }
         }
 
         System.out.print("Duplicates removed. Now array contains:");
-        for (int value : newArray) {
-            System.out.print(" " + value);
-        }
+        printArray(newArray);
+
         numArray = newArray;
     }
 
     /*Task 17. Write a Java program to find the second largest element in an array.*/
-    public static void task17(int[] numArray) {
+    public static void task17(Integer[] numArray) {
         System.out.println("\n\n***Task 17. Write a Java program to find the second largest element in an array.***");
 
         // numbers array sorting
         bubbleSort(numArray);
 
-        if (numArray[0] == numArray[numArray.length - 1]) {
+        if (numArray[0].equals(numArray[numArray.length - 1])) {
             System.out.println("There is only one value in the array: " + numArray[0]);
         } else {
             System.out.print("The second largest element in the array: ");
@@ -491,17 +405,16 @@ public class Homework2 {
                 }
             }
         }
-
     }
 
     /*Task 18. Write a Java program to find the second smallest element in an array.*/
-    public static void task18(int[] numArray) {
+    public static void task18(Integer[] numArray) {
         System.out.println("\n***Task 18. Write a Java program to find the second smallest element in an array.***");
 
         // numbers array sorting
         bubbleSort(numArray);
 
-        if (numArray[0] == numArray[numArray.length - 1]) {
+        if (numArray[0].equals(numArray[numArray.length - 1])) {
             System.out.println("There is only one value in the array: " + numArray[0]);
         } else {
             System.out.print("The second smallest element in the array: ");
@@ -512,11 +425,10 @@ public class Homework2 {
                 }
             }
         }
-
     }
 
     /*Task 19. Write a Java program to add two matrices of the same size.*/
-    public static void task19(int[] numArray) {
+    public static void task19() {
         System.out.println("\n***Task 19. Write a Java program to add two matrices of the same size.***");
 
         int[][] matrix1 = {
@@ -532,23 +444,13 @@ public class Homework2 {
 
         //output matrix1
         System.out.println("First matrix:");
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 4; j++) {
-                System.out.print(" " + matrix1[i][j]);
-            }
-            System.out.println();
-        }
+        printMatrix(matrix1);
 
         System.out.println();
 
         //output matrix2
         System.out.println("Second matrix:");
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 4; j++) {
-                System.out.print(" " + matrix2[i][j]);
-            }
-            System.out.println();
-        }
+        printMatrix(matrix2);
         System.out.println();
 
 
@@ -560,31 +462,20 @@ public class Homework2 {
         }
 
         System.out.println("Result of adding:");
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 4; j++) {
-                System.out.print(" " + matrix1[i][j]);
-            }
-            System.out.println();
-        }
-
+        printMatrix(matrix1);
     }
 
     /*Task 20. Write a Java program to convert an array to ArrayList.*/
-    public static void task20(String[] strArray, int[] numArray) {
+    public static void task20(String[] strArray, Integer[] numArray) {
         System.out.println("\n***Task 20. Write a Java program to convert an array to ArrayList.***");
 
-        List<Integer> integerArrayList = new ArrayList<Integer>(numArray.length);
-        for (int value : numArray) {
-            integerArrayList.add(value);
-        }
+        List<Integer> integerArrayList = new ArrayList<>(numArray.length);
+        integerArrayList.addAll(Arrays.asList(numArray));
 
-        ArrayList<String> stringArrayList = new ArrayList<String>(strArray.length);
-        for (String value : strArray) {
-            stringArrayList.add(value);
-        }
+        ArrayList<String> stringArrayList = new ArrayList<>(strArray.length);
+        stringArrayList.addAll(Arrays.asList(strArray));
 
         System.out.println("Integer arrayList = " + integerArrayList);
         System.out.println("String arrayList = " + stringArrayList);
     }
-
 } //class closer
