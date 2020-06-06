@@ -3,7 +3,8 @@
 package homework3.domain;
 
 public class Car {
-    private static final String carOwner = "Yaroslav";
+    private static final String CAR_OWNER = "Yaroslav";
+
     private int weight;
     private String type;
 
@@ -16,7 +17,7 @@ public class Car {
     }
 
     public static String getCarOwner() {
-        return carOwner;
+        return CAR_OWNER;
     }
 
     public int getWeight() {
@@ -39,7 +40,7 @@ public class Car {
     @Override
     public String toString() {
         return "Car {" +
-                "owner: " + carOwner +
+                "owner: " + CAR_OWNER +
                 "; weight: " + weight + " ton" +
                 "; type: " + type +
                 '}';

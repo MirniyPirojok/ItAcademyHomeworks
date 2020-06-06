@@ -3,13 +3,15 @@ package homework4_5.domain;
 import java.util.Objects;
 
 public class Car extends Transport {
-    private final static String carOwner = "Yaroslav";
+    private final static String CAR_OWNER = "Yaroslav";
+
     private CarType type;
     private int maxSpeed;
     private int id;
 
     public Car() {
     }
+
     public Car(int id) {
         this.id = id;
     }
@@ -21,7 +23,7 @@ public class Car extends Transport {
     }
 
     public static String getCarOwner() {
-        return carOwner;
+        return CAR_OWNER;
     }
 
     public int getMaxSpeed() {
@@ -63,13 +65,13 @@ public class Car extends Transport {
     @Override
     public String toString() {
         return "Car #" + id + ". " +
-                "CarOwner: " + carOwner +
+                "CarOwner: " + CAR_OWNER +
                 ", type:" + type +
-                "("+ type.getTypeDescription()+")" +
+                "(" + type.getTypeDescription() + ")" +
                 ", maxSpeed=" + maxSpeed +
                 ", weight=" + weight +
                 ", price=" + price +
-                ", year=" + year;
+                ", year=" + YEAR;
     }
 
     @Override
@@ -80,14 +82,14 @@ public class Car extends Transport {
         return maxSpeed == car.maxSpeed &&
                 weight == car.weight &&
                 price == car.price &&
-                year == car.year &&
+                YEAR == car.YEAR &&
                 Objects.equals(type, car.type) &&
-                Objects.equals(carOwner, car.carOwner);
+                Objects.equals(CAR_OWNER, car.CAR_OWNER);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(type, maxSpeed, weight, price, carOwner, year);
+        return Objects.hash(type, maxSpeed, weight, price, CAR_OWNER, YEAR);
     }
 
 }//end of class

@@ -31,7 +31,7 @@ public class Transport extends Technology implements TransportTrading {
     @Override
     public void upgrade(int i) {
         this.weight += i;
-        System.out.println("Attempt to plus " +i+ " ton. Transport weight was upgraded successful. New weight is " + this.weight + " ton");
+        System.out.println("Attempt to plus " + i + " ton. Transport weight was upgraded successful. New weight is " + this.weight + " ton");
     }
 
     @Override
@@ -63,7 +63,7 @@ public class Transport extends Technology implements TransportTrading {
         return "Transport{" +
                 "weight=" + weight +
                 ", price=" + price +
-                ", year=" + year +
+                ", year=" + YEAR +
                 '}';
     }
 }//end of class
