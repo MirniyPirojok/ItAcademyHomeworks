@@ -3,17 +3,7 @@ package homework6;
 
 public class Demo {
     public static void main(String[] args) {
-
-        //task 6.1 Create anonymous class for object and run method that was overrided.
-        Computer anonymousComputer = new Computer() {
-            @Override
-            public String toString() {
-                return "Here is anonymous computer.";
-            }
-        };
-        System.out.println(anonymousComputer);
-        System.out.println();
-
+        Anonymous.doAnonymous();
 
         //task 6.3 Class Computer, inner class PowerSupply
         String powerSupplyModel = new Computer().new PowerSupply().getModel();
