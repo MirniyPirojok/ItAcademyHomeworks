@@ -3,11 +3,11 @@ package homework4_5.util;
 import homework4_5.domain.Car;
 import homework4_5.domain.SortBy;
 import homework4_5.domain.SumOf;
-import homework4_5.domain.Transport;
 
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Random;
+import java.util.function.Function;
 
 import static homework4_5.domain.CarType.JEEP;
 import static homework4_5.domain.CarType.SEDAN;
@@ -16,7 +16,7 @@ import static homework4_5.domain.CarType.TRUCK;
 
 public class CarsUtil {
 
-        public static Car generateCar(int id) {
+    public static Car generateCar(int id) {
         Car car = new Car(id);
         car.setWeight(new Random().nextInt(3) + 1);
         defineCarType(car);
@@ -45,7 +45,7 @@ public class CarsUtil {
     public static Car[] generateCars(int num) {
         Car[] cars = new Car[num];
         for (int i = 0; i < num; i++) {
-            cars[i] = generateCar(i+1);
+            cars[i] = generateCar(i + 1);
         }
         return cars;
     }
@@ -82,34 +82,29 @@ public class CarsUtil {
         }
     }
 
-    //count sum by criteria
-    //choose sum criteria
+    //choose criteria of sum
     public static void countSum(Car[] cars, SumOf criteria) {
+        int sum = 0;
         switch (criteria) {
             case WEIGHTS:
-                sumOfWeights(cars);
+                sum = sumOf(cars, Car::getWeight);
+                System.out.print("\nTotal weight of all cars = " + sum + " ton");
                 break;
             case PRICES:
-                sumOfPrices(cars);
+                sum = sumOf(cars, Car::getPrice);
+                System.out.print("\nTotal price of all cars = " + sum);
                 break;
             default:
                 throw new IllegalStateException("Unexpected value: " + criteria);
         }
     }
 
-    public static void sumOfWeights(Car[] cars) {
+    //count sum by criteria
+    public static int sumOf(Car[] cars, Function<Car, Integer> selector) {
         int sum = 0;
         for (Car car : cars) {
-            sum += car.getWeight();
+            sum += selector.apply(car);
         }
-        System.out.println("\nTotal weight of all cars = " + sum + " ton");
-    }
-
-    public static void sumOfPrices(Car[] cars) {
-        int sum = 0;
-        for (Car car : cars) {
-            sum += car.getPrice();
-        }
-        System.out.println("\nTotal price of all cars = " + sum);
+        return sum;
     }
 }//end of class

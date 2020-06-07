@@ -88,6 +88,5 @@ public class DemoCars {
         transport.upgrade(1);
         transport.downgrade(1);
 
-
     }//end of main
 }//end of class
