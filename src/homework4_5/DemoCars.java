@@ -48,6 +48,7 @@ public class DemoCars {
                 " and car #" + cars[5].getId() +
                 " equal to check equals() and hashCode().");
 
+
         cars[4].setWeight(3);
         cars[4].setType(CarType.TRUCK);
         cars[4].setMaxSpeed(160);

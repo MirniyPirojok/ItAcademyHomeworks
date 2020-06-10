@@ -465,9 +465,9 @@ public class Homework2 {
         printMatrix(matrix1);
     }
 
-    /*Task 20. Write a Java program to convert an array to ArrayList.*/
+    /*Task 20. Write a Java program to convert an array to ArrayAndLinkedList.*/
     public static void task20(String[] strArray, Integer[] numArray) {
-        System.out.println("\n***Task 20. Write a Java program to convert an array to ArrayList.***");
+        System.out.println("\n***Task 20. Write a Java program to convert an array to ArrayAndLinkedList.***");
 
         List<Integer> integerArrayList = new ArrayList<>(numArray.length);
         integerArrayList.addAll(Arrays.asList(numArray));
