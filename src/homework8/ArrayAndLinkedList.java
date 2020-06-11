@@ -1,6 +1,5 @@
-package homework7;
+package homework8;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -46,8 +45,6 @@ public class ArrayAndLinkedList {
         for (String string : stringLinkedList) {
             System.out.println(" " + string);
         }
-
-
 
         long finishedTimeMillsLinked = System.currentTimeMillis();
 

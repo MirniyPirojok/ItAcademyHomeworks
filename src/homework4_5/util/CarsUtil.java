@@ -18,12 +18,17 @@ public class CarsUtil {
 
     public static Car generateCar(int id) {
         Car car = new Car(id);
-        car.setWeight(new Random().nextInt(3) + 1);
+        car.setWeight(generateWeight());
         defineCarType(car);
         return car;
     }
 
-    public static void defineCarType(Car car) {
+    private static int generateWeight() {
+        //from 1 to 3 values
+        return new Random().nextInt(3) + 1;
+    }
+
+        public static void defineCarType(Car car) {
         switch (car.getWeight()) {
             case 1:
                 car.setType(SEDAN);

@@ -9,7 +9,6 @@ public class CarUtil {
     public static final String JEEP = "jeep";
     public static final String TRUCK = "truck";
 
-
     public static Car generateCar() {
         Car car = new Car();
         car.setWeight(generateWeight());
