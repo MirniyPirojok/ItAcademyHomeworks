@@ -1,13 +1,10 @@
-/*1. Создать экземпляр класса LinkedList, разместить в нём 20 объектов класса Book.
-Вывести информацию о всех книгах. Программно удалить из коллекции 7-ю книгу,
- вывести на экран информацию об оставшихся книгах.*/
-
 package homework9;
 
 import java.util.Objects;
 
 public class Book {
     Long bookId;
+
     String bookName;
     String authorName;
     String authorMiddlename;
@@ -61,6 +58,8 @@ public class Book {
                 " " + authorMiddlename +
                 " " + authorSurname;
     }
+
+
 
     @Override
     public boolean equals(Object o) {

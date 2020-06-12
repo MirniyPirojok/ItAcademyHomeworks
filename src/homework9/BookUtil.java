@@ -1,10 +1,7 @@
 package homework9;
 
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Random;
-import java.util.Set;
+
+import java.util.*;
 
 public class BookUtil {
 
@@ -15,7 +12,6 @@ public class BookUtil {
     static final String[] authorNames = {"Ivan", "Petr", "Dmitriy", "Yaroslav"};
     static final String[] authorMiddleNames = {"Ivanovich", "Petrovich", "Dmitrievich", "Alekseevich"};
     static final String[] authorSurnames = {"Ivanov", "Petrov", "Sidorov", "Borisov"};
-
 
 
     private static String generateBookName() {
@@ -48,36 +44,68 @@ public class BookUtil {
         return book;
     }
 
-
-    public static List<Book> generateLinkedListBooks(int booksCount) {
-        LinkedList<Book> books = new LinkedList<>();
-
+    static Book[] generateBooks(int booksCount) {
+        Book[] books = new Book[booksCount];
         for (int i = 0; i < booksCount; i++) {
-            books.add(generateBook(i));
+            books[i] = generateBook(i);
         }
         return books;
     }
 
-    public static Set<Book> generateHashSetBooks(int booksCount, int sameBooksCount){
+    static Book[] generateBooks(int booksCount, int sameBooksCount) {
+        Book[] books = new Book[booksCount];
+        for (int i = 0; i < booksCount; i++) {
+            if (i > booksCount - sameBooksCount) {
+                books[i] = books[i - 1];
+            } else {
+                books[i] = generateBook(i);
+            }
+        }
+        return books;
+    }
+
+    public static List<Book> generateBooksLinkedList(int booksCount) {
+        Book[] generatedBooks = generateBooks(booksCount);
+        List<Book> books = new LinkedList<>();
+
+        for (Book generatedBook : generatedBooks) {
+            books.add(generatedBook);
+        }
+        return books;
+    }
+
+    public static Set<Book> generateBooksHashSet(int booksCount, int sameBooksCount) {
+        Book[] generatedBooks = generateBooks(booksCount, sameBooksCount);
         HashSet<Book> books = new HashSet<>(HASH_SET_INITIAL_CAPACITY);
 
-        for (int i = sameBooksCount; i < booksCount; i++) {
-            books.add(generateBook(i));
+        for (Book generatedBook : generatedBooks) {
+            books.add(generatedBook);
         }
         return books;
     }
 
-    public static void printBooks(List<Book> books) {
+    public static void printBooksLinkedList(List<Book> books) {
         System.out.println();
+        System.out.println("*** Linked List of books ***");
         for (Book book : books) {
             System.out.println(book);
         }
     }
 
-    public static void printBooks(Set<Book> books) {
+    public static void printBooksHashSet(Set<Book> books) {
         System.out.println();
+        System.out.println("*** HashSet of books which start from vowel letter ***");
+
+        int i = 0;
         for (Book book : books) {
-            System.out.println(book);
+            char firstCharacter = book.getBookName().charAt(0);
+            char[] vowels = {'A', 'E', 'I', 'O', 'U', 'Y'};
+            for (char vowel : vowels) {
+                if (firstCharacter == vowel) {
+                    System.out.print(i++ + ") ");
+                    System.out.println(book);
+                }
+            }
         }
     }
 
