@@ -3,18 +3,18 @@ package homework9;
 import java.util.Objects;
 
 public class Book {
-    Long bookId;
+    int bookId;
 
     String bookName;
     String authorName;
     String authorMiddlename;
     String authorSurname;
 
-    public Long getBookId() {
+    public int getBookId() {
         return bookId;
     }
 
-    public void setBookId(Long bookId) {
+    public void setBookId(int bookId) {
         this.bookId = bookId;
     }
 

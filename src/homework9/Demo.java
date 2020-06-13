@@ -26,6 +26,7 @@
 
 package homework9;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -33,21 +34,30 @@ import static homework9.BookUtil.*;
 
 public class Demo {
 
+    public static final char[] VOWELS = {'A', 'E', 'I', 'O', 'U', 'Y'};
+
     public static final int LINKED_LIST_BOOKS_COUNT = 20;
+    public static final int LINKED_LIST_IDENTICAL_BOOKS_COUNT = 0;
     public static final int BOOK_INDEX_TO_REMOVE = 7;
     public static final int HASH_SET_BOOKS_COUNT = 25;
-    public static final int SAME_BOOKS_COUNT = 6;
+    public static final int HASH_SET_IDENTICAL_BOOKS_COUNT = 6;
+
 
     public static void main(String[] args) {
 
         //task 1
-        List<Book> booksLinkedList = generateBooksLinkedList(LINKED_LIST_BOOKS_COUNT);
+        List<Book> booksLinkedList = generateBooksLinkedList(LINKED_LIST_BOOKS_COUNT, LINKED_LIST_IDENTICAL_BOOKS_COUNT);
         booksLinkedList.remove(BOOK_INDEX_TO_REMOVE);
         printBooksLinkedList(booksLinkedList);
 
         //task 2
-        Set<Book> booksHashSet = generateBooksHashSet(HASH_SET_BOOKS_COUNT, SAME_BOOKS_COUNT);
-        printBooksHashSet(booksHashSet);
+        System.out.println("\nList of 25 books which contains 6 the same books:");
+        List<Book> booksForHashSet = generateBooksLinkedList(HASH_SET_BOOKS_COUNT, HASH_SET_IDENTICAL_BOOKS_COUNT);
+        printBooksLinkedList(booksForHashSet);
+
+        Set<Book> booksHashSet = new HashSet<>(booksForHashSet);
+        printBooksHashSet(booksHashSet); //print all books
+        printBooksHashSet(booksHashSet, VOWELS); // print books that starts from vowel
 
 
     }//end of main

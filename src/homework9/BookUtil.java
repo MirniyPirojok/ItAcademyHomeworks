@@ -1,85 +1,59 @@
 package homework9;
 
 
-import java.util.*;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Random;
+import java.util.Set;
 
 public class BookUtil {
 
-    static final int HASH_SET_INITIAL_CAPACITY = 25;
-
-    static final String[] bookName = {"Java", "C++", "C", "Pascal", "Fortran", "Basic",
+    public static final String[] bookName = {"Java", "C++", "C", "Pascal", "Fortran", "Basic",
             "JavaScript", "Python", "Assembler", "Swift", "Objective C", "Kotlin", "SQL"};
-    static final String[] authorNames = {"Ivan", "Petr", "Dmitriy", "Yaroslav"};
-    static final String[] authorMiddleNames = {"Ivanovich", "Petrovich", "Dmitrievich", "Alekseevich"};
-    static final String[] authorSurnames = {"Ivanov", "Petrov", "Sidorov", "Borisov"};
+    public static final String[] authorNames = {"Ivan", "Petr", "Dmitriy", "Yaroslav"};
+    public static final String[] authorMiddleNames = {"Ivanovich", "Petrovich", "Dmitrievich", "Alekseevich"};
+    public static final String[] authorSurnames = {"Ivanov", "Petrov", "Sidorov", "Borisov"};
 
 
-    private static String generateBookName() {
+    public static String generateBookName() {
         int bookNumber = new Random().nextInt(bookName.length);
         return bookName[bookNumber];
     }
 
-    private static String generateName() {
+    public static String generateAuthorName() {
         int authorNumber = new Random().nextInt(authorNames.length);
         return authorNames[authorNumber];
     }
 
-    private static String generateMiddleName() {
+    public static String generateAuthorMiddlename() {
         int authorNumber = new Random().nextInt(authorMiddleNames.length);
         return authorMiddleNames[authorNumber];
     }
 
-    private static String generateSurname() {
+    public static String generateAuthorSurname() {
         int authorNumber = new Random().nextInt(authorSurnames.length);
         return authorSurnames[authorNumber];
     }
 
-    private static Book generateBook(long bookId) {
+    public static Book generateBook(int bookId) {
         Book book = new Book();
         book.setBookId(bookId);
         book.setBookName(generateBookName());
-        book.setAuthorName(generateName());
-        book.setAuthorMiddlename(generateMiddleName());
-        book.setAuthorSurname(generateSurname());
+        book.setAuthorName(generateAuthorName());
+        book.setAuthorMiddlename(generateAuthorMiddlename());
+        book.setAuthorSurname(generateAuthorSurname());
         return book;
     }
 
-    static Book[] generateBooks(int booksCount) {
-        Book[] books = new Book[booksCount];
-        for (int i = 0; i < booksCount; i++) {
-            books[i] = generateBook(i);
-        }
-        return books;
-    }
-
-    static Book[] generateBooks(int booksCount, int sameBooksCount) {
-        Book[] books = new Book[booksCount];
-        for (int i = 0; i < booksCount; i++) {
-            if (i > booksCount - sameBooksCount) {
-                books[i] = books[i - 1];
-            } else {
-                books[i] = generateBook(i);
-            }
-        }
-        return books;
-    }
-
-    public static List<Book> generateBooksLinkedList(int booksCount) {
-        Book[] generatedBooks = generateBooks(booksCount);
+    public static List<Book> generateBooksLinkedList(int booksCount, int identicalBooksCount) {
         List<Book> books = new LinkedList<>();
-
-        for (Book generatedBook : generatedBooks) {
-            books.add(generatedBook);
-        }
-        return books;
-    }
-
-    public static Set<Book> generateBooksHashSet(int booksCount, int sameBooksCount) {
-        Book[] generatedBooks = generateBooks(booksCount, sameBooksCount);
-        HashSet<Book> books = new HashSet<>(HASH_SET_INITIAL_CAPACITY);
-
-        for (Book generatedBook : generatedBooks) {
-            books.add(generatedBook);
+        int lastUniqueBook = booksCount - identicalBooksCount;
+        for (int i = 0; i < booksCount; i++) {
+            if (i > lastUniqueBook) { //if we have enough unique books
+                books.add(books.get(lastUniqueBook)); //add copy of the last unique book in the end of the list
+            } else {
+                books.add(generateBook(i));
+            }
         }
         return books;
     }
@@ -93,17 +67,22 @@ public class BookUtil {
     }
 
     public static void printBooksHashSet(Set<Book> books) {
-        System.out.println();
-        System.out.println("*** HashSet of books which start from vowel letter ***");
-
-        int i = 0;
+        System.out.println("\n*** HashSet of books ***");
+        int i = 0; //add order number
         for (Book book : books) {
-            char firstCharacter = book.getBookName().charAt(0);
-            char[] vowels = {'A', 'E', 'I', 'O', 'U', 'Y'};
-            for (char vowel : vowels) {
-                if (firstCharacter == vowel) {
-                    System.out.print(i++ + ") ");
-                    System.out.println(book);
+            System.out.println(i++ + ") " + book);
+        }
+    }
+
+    public static void printBooksHashSet(Set<Book> books, char[] vowels) {
+        System.out.println();
+        System.out.println("\n*** HashSet of books which start from vowel letter ***");
+
+        for (Book book : books) { //find book names that starts from a vowel
+            char firstCharacter = book.getBookName().charAt(0); //take the first letter of the book name
+            for (char vowel : vowels) { //compare first letters with vowel letters
+                if (firstCharacter == vowel) { //if the first letter is a vowel
+                    System.out.println(book); //then print this book
                 }
             }
         }
