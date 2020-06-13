@@ -14,7 +14,6 @@ public class BookUtil {
     public static final String[] authorMiddleNames = {"Ivanovich", "Petrovich", "Dmitrievich", "Alekseevich"};
     public static final String[] authorSurnames = {"Ivanov", "Petrov", "Sidorov", "Borisov"};
 
-
     public static String generateBookName() {
         int bookNumber = new Random().nextInt(bookName.length);
         return bookName[bookNumber];
@@ -45,15 +44,19 @@ public class BookUtil {
         return book;
     }
 
-    public static List<Book> generateBooksLinkedList(int booksCount, int identicalBooksCount) {
+    public static List<Book> generateBooksLinkedList(int booksCount) {
         List<Book> books = new LinkedList<>();
-        int lastUniqueBook = booksCount - identicalBooksCount;
         for (int i = 0; i < booksCount; i++) {
-            if (i > lastUniqueBook) { //if we have enough unique books
-                books.add(books.get(lastUniqueBook)); //add copy of the last unique book in the end of the list
-            } else {
-                books.add(generateBook(i));
-            }
+            books.add(generateBook(i));
+        }
+        return books;
+    }
+
+    public static List<Book> generateBooksHashSet(List<Book> books, int identicalBooksCount) {
+        Book lastBook = books.get(books.size() - 1); //get the last book from the list
+        System.out.println("\n*** Add " + identicalBooksCount + " identical books to the list ***");
+        for (int i = 0; i < identicalBooksCount; i++) {
+            books.add(lastBook);
         }
         return books;
     }
@@ -68,7 +71,7 @@ public class BookUtil {
 
     public static void printBooksHashSet(Set<Book> books) {
         System.out.println("\n*** HashSet of books ***");
-        int i = 0; //add order number
+        int i = 0; //order number to print
         for (Book book : books) {
             System.out.println(i++ + ") " + book);
         }
