@@ -1,6 +1,6 @@
 package homework9;
 
-import java.util.Objects;
+import java.util.*;
 
 public class Book {
     int bookId;
@@ -58,7 +58,6 @@ public class Book {
                 " " + authorMiddlename +
                 " " + authorSurname;
     }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -74,4 +73,5 @@ public class Book {
     public int hashCode() {
         return Objects.hash(bookName, authorName, authorMiddlename, authorSurname);
     }
+
 }//end of class
