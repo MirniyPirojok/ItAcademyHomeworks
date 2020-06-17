@@ -1,6 +1,7 @@
-package homework9;
+package homework9.util;
 
 
+import homework9.domain.Book;
 import homework9.exceptions.ResourceCannotBeCreatedException;
 
 import java.util.*;

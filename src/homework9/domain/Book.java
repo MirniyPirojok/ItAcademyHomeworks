@@ -1,4 +1,4 @@
-package homework9;
+package homework9.domain;
 
 import java.util.*;
 
@@ -52,12 +52,15 @@ public class Book {
 
     @Override
     public String toString() {
-        return "Book #" + bookId +
+/*        return "Book #" + bookId +
                 ": \"" + bookName + "\"" +
                 " " + authorName +
                 " " + authorMiddlename +
-                " " + authorSurname;
+                " " + authorSurname;*/
+        return String.format("Book #%-2s: %-11s %-10s %-12s %s", bookId, bookName, authorName, authorMiddlename, authorSurname);
     }
+
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

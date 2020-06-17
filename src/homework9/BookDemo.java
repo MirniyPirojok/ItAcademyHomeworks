@@ -26,11 +26,15 @@
 
 package homework9;
 
+import homework9.domain.Book;
 import homework9.exceptions.ResourceCannotBeCreatedException;
 
-import java.util.*;
+import java.util.Comparator;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
-import static homework9.BookUtil.*;
+import static homework9.util.BookUtil.*;
 
 public class BookDemo {
 
@@ -39,6 +43,7 @@ public class BookDemo {
     public static final int LINKED_LIST_BOOKS_COUNT = 20;
     public static final int BOOK_INDEX_TO_REMOVE = 7;
     public static final int IDENTICAL_BOOKS_COUNT = 6;
+    public static final int LINKED_LIST_BOOKS_COUNT_FOR_SORT = 25;
 
 
     public static void main(String[] args) {
@@ -50,7 +55,7 @@ public class BookDemo {
             booksLinkedList = generateBooksForLinkedList(LINKED_LIST_BOOKS_COUNT);
             System.out.println("Linked list of books:");
             printBooks(booksLinkedList);
-        } catch (ResourceCannotBeCreatedException e){
+        } catch (ResourceCannotBeCreatedException e) {
             System.out.println(e.getMessage());
             return;
         }
@@ -73,6 +78,19 @@ public class BookDemo {
         printBooks(booksHashSet, VOWELS); // print books that starts from vowel
 
         //task3
+        List<Book> booksForSort = generateBooksForLinkedList(LINKED_LIST_BOOKS_COUNT_FOR_SORT);
+
+        System.out.println("\nSorted books by author name: ");
+        booksForSort.sort(Comparator.comparing(Book::getAuthorName));
+        printBooks(booksForSort);
+
+        System.out.println("\nSorted books by author middlename: ");
+        booksForSort.sort(Comparator.comparing(Book::getAuthorMiddlename));
+        printBooks(booksForSort);
+
+        System.out.println("\nSorted books by author surname: ");
+        booksForSort.sort(Comparator.comparing(Book::getAuthorSurname));
+        printBooks(booksForSort);
 
     }//end of main
 }//end of class

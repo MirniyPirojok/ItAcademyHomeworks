@@ -1,6 +1,6 @@
 package exceptionpractice;
 
-import homework9.Book;
+import homework9.domain.Book;
 
 import java.util.List;
 
