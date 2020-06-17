@@ -1,4 +1,4 @@
-package exception;
+package exceptionpractice;
 
 import homework9.Book;
 import homework9.BookUtil;
@@ -12,7 +12,7 @@ public class ExceptionsDemo {
         List<Book> books = BookUtil.generateBooksForLinkedList(10);
 
         try {
-            Book java = Util.searchInBook("Java1", books);
+            Book java = ExceptionUtil.searchInBook("Java1", books);
             System.out.println(java);
         } catch (ResourceNotFoundException e) {
             System.out.println(e.getMessage());

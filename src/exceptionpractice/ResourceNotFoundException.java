@@ -1,4 +1,4 @@
-package exception;
+package exceptionpractice;
 
 public class ResourceNotFoundException extends RuntimeException {
 

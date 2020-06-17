@@ -26,13 +26,13 @@
 
 package homework9;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import homework9.exceptions.ResourceCannotBeCreatedException;
+
+import java.util.*;
 
 import static homework9.BookUtil.*;
 
-public class Demo {
+public class BookDemo {
 
     public static final char[] VOWELS = {'A', 'E', 'I', 'O', 'U', 'Y'};
 
@@ -44,17 +44,33 @@ public class Demo {
     public static void main(String[] args) {
 
         //task 1
-        List<Book> booksLinkedList = generateBooksLinkedList(LINKED_LIST_BOOKS_COUNT);
-        booksLinkedList.remove(BOOK_INDEX_TO_REMOVE);
-        printBooksLinkedList(booksLinkedList);
+        List<Book> booksLinkedList;
+
+        try {
+            booksLinkedList = generateBooksForLinkedList(LINKED_LIST_BOOKS_COUNT);
+            System.out.println("Linked list of books:");
+            printBooks(booksLinkedList);
+        } catch (ResourceCannotBeCreatedException e){
+            System.out.println(e.getMessage());
+            return;
+        }
+
+        try {
+            booksLinkedList.remove(BOOK_INDEX_TO_REMOVE);
+            System.out.println("\nIndex " + BOOK_INDEX_TO_REMOVE + " was removed.");
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println("\nThere is no index " + BOOK_INDEX_TO_REMOVE + " in the list. Nothing to remove.");
+        }
 
         //task 2
-        List<Book> booksForHashSet = generateBooksHashSet(booksLinkedList, IDENTICAL_BOOKS_COUNT);
-        printBooksLinkedList(booksForHashSet);
+        List<Book> booksForHashSet = generateBooksForHashSet(booksLinkedList, IDENTICAL_BOOKS_COUNT);//here is 25 books
+        System.out.println("Books for HashSet:");
+        printBooks(booksForHashSet);
 
         Set<Book> booksHashSet = new HashSet<>(booksForHashSet);
-        printBooksHashSet(booksHashSet); //print all books
-        printBooksHashSet(booksHashSet, VOWELS); // print books that starts from vowel
+        System.out.println("\nBooks of HashSet:");
+        printBooks(booksHashSet); //print all books of HashSet
+        printBooks(booksHashSet, VOWELS); // print books that starts from vowel
 
         //task3
 
