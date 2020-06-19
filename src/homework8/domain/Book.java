@@ -1,4 +1,4 @@
-package homework9.domain;
+package homework8.domain;
 
 import java.util.*;
 
@@ -9,6 +9,13 @@ public class Book {
     String authorName;
     String authorMiddlename;
     String authorSurname;
+
+    public Book() {
+    }
+
+    public Book(int bookId) {
+        this.bookId = bookId;
+    }
 
     public int getBookId() {
         return bookId;

@@ -1,4 +1,4 @@
-package homework9.exceptions;
+package homework8.exceptions;
 
 public class ResourceCannotBeCreatedException extends RuntimeException {
     public ResourceCannotBeCreatedException() {

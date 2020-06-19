@@ -1,42 +1,41 @@
-package homework9.util;
+package homework8.util;
 
 
-import homework9.domain.Book;
-import homework9.exceptions.ResourceCannotBeCreatedException;
+import homework8.domain.Book;
+import homework8.exceptions.ResourceCannotBeCreatedException;
 
 import java.util.*;
 
 public class BookUtil {
 
-    public static final String[] bookName = {"Java", "C++", "C", "Pascal", "Fortran", "Basic",
+    public static final String[] BOOK_NAMES = {"Java", "C++", "C", "Pascal", "Fortran", "Basic",
             "JavaScript", "Python", "Assembler", "Swift", "Objective C", "Kotlin", "SQL"};
-    public static final String[] authorNames = {"Ivan", "Petr", "Dmitriy", "Yaroslav", "Andrei"};
-    public static final String[] authorMiddleNames = {"Ivanovich", "Petrovich", "Dmitrievich", "Alekseevich"};
-    public static final String[] authorSurnames = {"Ivanov", "Petrov", "Sidorov", "Borisov"};
+    public static final String[] NAMES = {"Ivan", "Petr", "Dmitriy", "Yaroslav", "Andrei"};
+    public static final String[] MIDDLENAMES = {"Ivanovich", "Petrovich", "Dmitrievich", "Alekseevich"};
+    public static final String[] SURNAMES = {"Ivanov", "Petrov", "Sidorov", "Borisov"};
 
     public static String generateBookName() {
-        int bookNumber = new Random().nextInt(bookName.length);
-        return bookName[bookNumber];
+        int bookNumber = new Random().nextInt(BOOK_NAMES.length);
+        return BOOK_NAMES[bookNumber];
     }
 
     public static String generateAuthorName() {
-        int authorNumber = new Random().nextInt(authorNames.length);
-        return authorNames[authorNumber];
+        int authorNumber = new Random().nextInt(NAMES.length);
+        return NAMES[authorNumber];
     }
 
     public static String generateAuthorMiddlename() {
-        int authorNumber = new Random().nextInt(authorMiddleNames.length);
-        return authorMiddleNames[authorNumber];
+        int authorNumber = new Random().nextInt(MIDDLENAMES.length);
+        return MIDDLENAMES[authorNumber];
     }
 
     public static String generateAuthorSurname() {
-        int authorNumber = new Random().nextInt(authorSurnames.length);
-        return authorSurnames[authorNumber];
+        int authorNumber = new Random().nextInt(SURNAMES.length);
+        return SURNAMES[authorNumber];
     }
 
     public static Book generateBook(int bookId) {
-        Book book = new Book();
-        book.setBookId(bookId);
+        Book book = new Book(bookId);
         book.setBookName(generateBookName());
         book.setAuthorName(generateAuthorName());
         book.setAuthorMiddlename(generateAuthorMiddlename());
@@ -89,12 +88,4 @@ public class BookUtil {
             }
         }
     }
-
-    public static void printBooks(TreeSet<Book> books) {
-        int i = 0; //order number to print
-        for (Book book : books) {
-            System.out.println(i++ + ") " + book);
-        }
-    }
-
 }//end of class
