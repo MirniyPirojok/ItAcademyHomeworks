@@ -7,6 +7,9 @@ import java.util.Set;
 import static homework8.util.StudentUtil.*;
 
 public class StudentDemo {
+
+    private static final int STUDENTS_COUNT = 20;
+
     public static void main(String[] args) {
 
         //task4
@@ -14,7 +17,7 @@ public class StudentDemo {
 Вывести на экран информацию о каждом чётном в списке студенте,
  каждого нечётного студента удалить из коллекции.*/
 
-        Set<Student> students = generateStudents(20);
+        Set<Student> students = generateStudents(STUDENTS_COUNT);
         printStudents(students);
 
         removeOddStudents(students);
