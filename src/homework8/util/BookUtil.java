@@ -4,15 +4,15 @@ package homework8.util;
 import homework8.domain.Book;
 import homework8.exceptions.ResourceCannotBeCreatedException;
 
-import java.util.*;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Random;
+import java.util.Set;
+
+import static homework8.data.Names.*;
 
 public class BookUtil {
 
-    public static final String[] BOOK_NAMES = {"Java", "C++", "C", "Pascal", "Fortran", "Basic",
-            "JavaScript", "Python", "Assembler", "Swift", "Objective C", "Kotlin", "SQL"};
-    public static final String[] NAMES = {"Ivan", "Petr", "Dmitriy", "Yaroslav", "Andrei"};
-    public static final String[] MIDDLENAMES = {"Ivanovich", "Petrovich", "Dmitrievich", "Alekseevich"};
-    public static final String[] SURNAMES = {"Ivanov", "Petrov", "Sidorov", "Borisov"};
 
     public static String generateBookName() {
         int bookNumber = new Random().nextInt(BOOK_NAMES.length);
@@ -44,7 +44,7 @@ public class BookUtil {
     }
 
     public static List<Book> generateBooksForLinkedList(int booksCount) {
-        if (booksCount <= 0){
+        if (booksCount <= 0) {
             throw new ResourceCannotBeCreatedException("Books list cannot be created with count " + booksCount);
         }
         List<Book> books = new LinkedList<>();

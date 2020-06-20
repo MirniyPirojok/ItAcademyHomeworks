@@ -6,7 +6,7 @@ import java.util.Random;
 import java.util.Set;
 import java.util.TreeSet;
 
-import static homework8.util.BookUtil.*;
+import static homework8.data.Names.*;
 
 public class StudentUtil {
 

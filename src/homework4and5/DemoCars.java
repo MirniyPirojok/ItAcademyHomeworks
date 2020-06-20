@@ -1,15 +1,15 @@
-package homework4_5;
+package homework4and5;
 
-import homework4_5.domain.Car;
-import homework4_5.domain.CarType;
-import homework4_5.domain.SortBy;
-import homework4_5.domain.SumOf;
-import homework4_5.domain.Transport;
+import homework4and5.domain.Car;
+import homework4and5.domain.CarType;
+import homework4and5.domain.SortBy;
+import homework4and5.domain.SumOf;
+import homework4and5.domain.Transport;
 
-import static homework4_5.util.CarsUtil.countSum;
-import static homework4_5.util.CarsUtil.generateCars;
-import static homework4_5.util.CarsUtil.showCars;
-import static homework4_5.util.CarsUtil.sortCars;
+import static homework4and5.util.CarsUtil.countSum;
+import static homework4and5.util.CarsUtil.generateCars;
+import static homework4and5.util.CarsUtil.showCars;
+import static homework4and5.util.CarsUtil.sortCars;
 
 
 public class DemoCars {

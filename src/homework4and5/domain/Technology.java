@@ -1,4 +1,4 @@
-package homework4_5.domain;
+package homework4and5.domain;
 
 public abstract class Technology implements TechnologyGrade {
     protected static final int YEAR = 2005;

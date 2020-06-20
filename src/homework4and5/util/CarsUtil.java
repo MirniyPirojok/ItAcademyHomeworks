@@ -1,17 +1,17 @@
-package homework4_5.util;
+package homework4and5.util;
 
-import homework4_5.domain.Car;
-import homework4_5.domain.SortBy;
-import homework4_5.domain.SumOf;
+import homework4and5.domain.Car;
+import homework4and5.domain.SortBy;
+import homework4and5.domain.SumOf;
 
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Random;
 import java.util.function.Function;
 
-import static homework4_5.domain.CarType.JEEP;
-import static homework4_5.domain.CarType.SEDAN;
-import static homework4_5.domain.CarType.TRUCK;
+import static homework4and5.domain.CarType.JEEP;
+import static homework4and5.domain.CarType.SEDAN;
+import static homework4and5.domain.CarType.TRUCK;
 
 
 public class CarsUtil {
@@ -89,7 +89,7 @@ public class CarsUtil {
 
     //choose criteria of sum
     public static void countSum(Car[] cars, SumOf criteria) {
-        int sum = 0;
+        int sum;
         switch (criteria) {
             case WEIGHTS:
                 sum = sumOf(cars, Car::getWeight);

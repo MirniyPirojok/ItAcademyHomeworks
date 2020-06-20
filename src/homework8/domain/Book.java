@@ -1,6 +1,6 @@
 package homework8.domain;
 
-import java.util.*;
+import java.util.Objects;
 
 public class Book {
     int bookId;
