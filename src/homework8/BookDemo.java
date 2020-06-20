@@ -40,7 +40,7 @@ public class BookDemo {
 
     private static final char[] VOWELS = {'A', 'E', 'I', 'O', 'U', 'Y'};
 
-    private static final int BOOKS_COUNT = 0;
+    private static final int BOOKS_COUNT = 20;
     private static final int BOOK_INDEX_TO_REMOVE = 7;
     private static final int IDENTICAL_BOOKS_COUNT = 6;
 
