@@ -43,7 +43,7 @@ public class Student implements Comparable<Student> {
     @Override
     public String toString() {
         return "Student #" + studentId +
-                ", studentName: '" + studentName + '\'';
+                ": " + studentName;
     }
 
     @Override
