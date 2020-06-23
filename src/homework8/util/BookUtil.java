@@ -1,6 +1,5 @@
 package homework8.util;
 
-
 import homework8.domain.Book;
 import homework8.exceptions.ResourceCannotBeCreatedException;
 

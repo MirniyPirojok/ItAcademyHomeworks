@@ -1,4 +1,4 @@
-package exceptionpractice;
+package practiceexception;
 
 import homework8.domain.Book;
 import homework8.util.BookUtil;

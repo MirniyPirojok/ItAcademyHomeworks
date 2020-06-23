@@ -44,7 +44,7 @@ public class Homework2Util {
         return sum;
     }
 
-    public static <T> void findDuplicate(T[] array) {
+    public static <T> void findDuplicate(T[] array) { //array should be already sorted
         // find duplicates
         boolean duplicateCheck = false;
         System.out.print("Next values have duplicate:");
