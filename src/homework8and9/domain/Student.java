@@ -1,4 +1,4 @@
-package homework8.domain;
+package homework8and9.domain;
 
 import java.util.Objects;
 

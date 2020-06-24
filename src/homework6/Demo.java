@@ -1,6 +1,5 @@
 package homework6;
 
-
 public class Demo {
     public static void main(String[] args) {
         Anonymous.doAnonymous();
@@ -14,7 +13,6 @@ public class Demo {
         Computer myComputer = new Computer();
         Computer.PowerSupply powerSupply = myComputer.getPowerSupply();
         System.out.println("powerSupply: " + powerSupply);
-
 
     }//end of main
 }//end of class

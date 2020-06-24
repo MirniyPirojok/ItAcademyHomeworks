@@ -1,10 +1,12 @@
-package homework8;
+package homework8and9;
 
-import homework8.domain.Student;
+import homework8and9.domain.Student;
 
 import java.util.Set;
 
-import static homework8.util.StudentUtil.*;
+import static homework8and9.util.StudentUtil.generateStudents;
+import static homework8and9.util.StudentUtil.printStudents;
+import static homework8and9.util.StudentUtil.removeOddStudents;
 
 public class StudentDemo {
 

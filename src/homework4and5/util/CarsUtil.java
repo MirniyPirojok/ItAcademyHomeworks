@@ -74,7 +74,7 @@ public class CarsUtil {
                 System.out.println("\nCars were sorted by weight: ");
                 Arrays.sort(cars, Comparator.comparing(Car::getWeight));
                 break;
-            case MAXSPEED:
+            case MAX_SPEED:
                 System.out.println("\nCars were sorted by max speed: ");
                 Arrays.sort(cars, Comparator.comparing(Car::getMaxSpeed));
                 break;

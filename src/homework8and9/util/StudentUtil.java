@@ -1,12 +1,14 @@
-package homework8.util;
+package homework8and9.util;
 
-import homework8.domain.Student;
+import homework8and9.domain.Student;
 
 import java.util.Random;
 import java.util.Set;
 import java.util.TreeSet;
 
-import static homework8.data.Names.*;
+import static homework8and9.data.Names.MIDDLENAMES;
+import static homework8and9.data.Names.NAMES;
+import static homework8and9.data.Names.SURNAMES;
 
 public class StudentUtil {
 

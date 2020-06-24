@@ -29,32 +29,32 @@ public class Transport extends Technology implements TransportTrading {
     }
 
     @Override
-    public void upgrade(int i) {
-        this.weight += i;
-        System.out.println("Attempt to plus " + i + " ton. Transport weight was upgraded successful. New weight is " + this.weight + " ton");
+    public void upgrade(int plusWeight) {
+        this.weight += plusWeight;
+        System.out.println("Attempt to plus " + plusWeight + " ton. Transport weight was upgraded successful. New weight is " + this.weight + " ton");
     }
 
     @Override
-    public void downgrade(int i) {
-        if (i >= this.weight) {
-            System.out.println("\nAttempt to minus " + i + " ton. Transport downgraded too much. Negative or zero weight is unacceptable.");
+    public void downgrade(int minusWeight) {
+        if (minusWeight >= this.weight) {
+            System.out.println("\nAttempt to minus " + minusWeight + " ton. Transport downgraded too much. Negative or zero weight is unacceptable.");
             System.out.println("Transport weight is still " + this.weight + " ton.");
         } else {
-            this.weight -= i;
-            System.out.println("Attempt to minus " + i + " ton. Transport weight was downgraded successful. New weight is " + this.weight + " ton");
+            this.weight -= minusWeight;
+            System.out.println("Attempt to minus " + minusWeight + " ton. Transport weight was downgraded successful. New weight is " + this.weight + " ton");
         }
     }
 
 
     @Override
-    public void raisePrice(int i) {
-        this.price += i;
+    public void raisePrice(int plusPrice) {
+        this.price += plusPrice;
         System.out.println(" price was raised to " + this.getPrice());
     }
 
     @Override
-    public void reducePrice(int i) {
-        this.price -= i;
+    public void reducePrice(int minusPrice) {
+        this.price -= minusPrice;
         System.out.println(" price was reduced to " + this.getPrice());
     }
 

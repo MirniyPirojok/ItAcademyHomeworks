@@ -1,4 +1,4 @@
-package homework8.data;
+package homework8and9.data;
 
 public final class Names {
 

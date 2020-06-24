@@ -1,14 +1,17 @@
-package homework8.util;
+package homework8and9.util;
 
-import homework8.domain.Book;
-import homework8.exceptions.ResourceCannotBeCreatedException;
+import homework8and9.domain.Book;
+import homework8and9.exceptions.ResourceCannotBeCreatedException;
 
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 import java.util.Set;
 
-import static homework8.data.Names.*;
+import static homework8and9.data.Names.BOOK_NAMES;
+import static homework8and9.data.Names.MIDDLENAMES;
+import static homework8and9.data.Names.NAMES;
+import static homework8and9.data.Names.SURNAMES;
 
 public class BookUtil {
 

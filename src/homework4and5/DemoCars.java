@@ -23,7 +23,7 @@ public class DemoCars {
         sortCars(cars, SortBy.WEIGHT);
         showCars(cars);
 
-        sortCars(cars, SortBy.MAXSPEED);
+        sortCars(cars, SortBy.MAX_SPEED);
         showCars(cars);
 
         sortCars(cars, SortBy.ID);
@@ -33,12 +33,12 @@ public class DemoCars {
         countSum(cars, SumOf.WEIGHTS);
 
         //check Car methods
-        cars[0].upgrade(11);
-        cars[1].downgrade(22);
+        cars[0].upgrade(11); //set speed for test
+        cars[1].downgrade(22);//set speed for test
         System.out.print("\nCar #" + cars[2].getId());
-        cars[2].raisePrice(500);
+        cars[2].raisePrice(500); //set price for test
         System.out.print("\nCar #" + cars[3].getId());
-        cars[3].reducePrice(300);
+        cars[3].reducePrice(300);//set price for test
 
         showCars(cars);
 
@@ -85,6 +85,7 @@ public class DemoCars {
         //check transport methods
         Transport transport = new Transport();
         System.out.println("\nSome transport was created: " + transport);
+        //set weight to test
         transport.downgrade(1);
         transport.upgrade(1);
         transport.downgrade(1);

@@ -1,5 +1,5 @@
 package homework4and5.domain;
 
 public enum SortBy {
-    ID, WEIGHT, MAXSPEED, PRICE
+    ID, WEIGHT, MAX_SPEED, PRICE
 }//end of class

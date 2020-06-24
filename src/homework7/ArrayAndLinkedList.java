@@ -4,6 +4,11 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class ArrayAndLinkedList {
+
+    public static final int STRING_COUNT = 10000;
+    public static final int STRING_NUMBER_TO_REMOVE = 5000;
+    public static final int STRING_NUMBER_TO_SET = 5001;
+
     public static void main(String[] args) {
 
         //*** Array List ***
@@ -13,13 +18,13 @@ public class ArrayAndLinkedList {
 
         java.util.ArrayList<String> stringArrayList = new java.util.ArrayList<>();
 
-        for (int i = 0; i < 10000; i++) {
+        for (int i = 0; i < STRING_COUNT; i++) {
             stringArrayList.add("String" + i);
         }
 
-        stringArrayList.remove(5000);
+        stringArrayList.remove(STRING_NUMBER_TO_REMOVE);
         stringArrayList.add("******New string");
-        stringArrayList.set(5001, "******Set string");
+        stringArrayList.set(STRING_NUMBER_TO_SET, "******Set string");
 
         for (String string : stringArrayList) {
             System.out.println(" " + string);
@@ -27,20 +32,19 @@ public class ArrayAndLinkedList {
 
         long finishedTimeMillsArray = System.currentTimeMillis();
 
-
         //*** Linked List ***
         System.out.println("\n*** Linked List ***");
 
         long startTimeMillsLinked = System.currentTimeMillis();
 
         List<String> stringLinkedList = new LinkedList<>();
-        for (int i = 0; i < 10000; i++) {
+        for (int i = 0; i < STRING_COUNT; i++) {
             stringLinkedList.add("String" + i);
         }
 
-        stringLinkedList.remove(5000);
+        stringLinkedList.remove(STRING_NUMBER_TO_REMOVE);
         stringLinkedList.add("******New string");
-        stringLinkedList.set(5001, "******Set string");
+        stringLinkedList.set(STRING_NUMBER_TO_SET, "******Set string");
 
         for (String string : stringLinkedList) {
             System.out.println(" " + string);

@@ -1,5 +1,5 @@
 //task6
-package homework8;
+package homework8and9;
 
 public class Tree {
     public static void main(String[] args) {
@@ -73,6 +73,4 @@ public class Tree {
             return friend + " {friends: " + left + ", " + right + "}";
         }
     }
-
-
 }//end of class

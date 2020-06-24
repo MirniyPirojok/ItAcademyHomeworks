@@ -23,18 +23,17 @@
 }
 //Слава -> {Матвей, Лиза, Ваня, Артем} -> {} -> {} -> {} -> {}*/
 
+package homework8and9;
 
-package homework8;
-
-import homework8.domain.Book;
-import homework8.exceptions.ResourceCannotBeCreatedException;
+import homework8and9.domain.Book;
+import homework8and9.exceptions.ResourceCannotBeCreatedException;
 
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import static homework8.util.BookUtil.*;
+import static homework8and9.util.BookUtil.*;
 
 public class BookDemo {
 

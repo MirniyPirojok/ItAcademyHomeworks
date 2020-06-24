@@ -51,14 +51,14 @@ public class Car extends Transport {
     }
 
     @Override
-    public void upgrade(int i) {
-        this.maxSpeed += i;
+    public void upgrade(int plusWeight) {
+        this.maxSpeed += plusWeight;
         System.out.println("\nCar #" + this.id + " speed was upgraded to " + this.getMaxSpeed());
     }
 
     @Override
-    public void downgrade(int i) {
-        this.maxSpeed -= i;
+    public void downgrade(int minusWeight) {
+        this.maxSpeed -= minusWeight;
         System.out.println("\nCar #" + this.id + " speed was downgraded to " + this.getMaxSpeed());
     }
 
