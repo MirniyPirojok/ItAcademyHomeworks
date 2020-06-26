@@ -1,32 +1,33 @@
 package homework10;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Scanner;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class StringHomework {
+
     public static void main(String[] args) {
 
         String defaultString = "This text is for doing the homework number 10." +
                 "\nThe first default sentence contains 8 words and 1 number. " +
-                "\n*This sentence is for the task number 5*. " +
+                "\n(This sentence is for the task number 5). " +
                 "\nThis sentence contains aaaaaa loooot of vooowel." +
                 "\nIs this a question 1?" +
                 "\nIs this a question 2?";
         defaultString = defaultString.trim();
         System.out.println("Default string:\n" + defaultString);
 
-        task1(defaultString);
-        task2(defaultString);
-        task3(defaultString);
-        task4(defaultString);
-        task5(defaultString);
+//        task1(defaultString);
+//        task2(defaultString);
+//        task3(defaultString);
+//        task4(defaultString);
+//        task5(defaultString);
         task6(defaultString);
-        task7(defaultString);
-        task8(defaultString);
+//        task7(defaultString);
+//        task8(defaultString);
 
     }//end of main
 
@@ -35,11 +36,9 @@ public class StringHomework {
         System.out.println("\nTask1.");
         defaultString = defaultString.trim();
 
-        int lastSpace = defaultString.lastIndexOf(' '); //
-
-        String changedString = "";
-
+        int lastSpace = defaultString.lastIndexOf(' ');
         int firstLetter = 0;
+        String changedString = "";
 
         while (firstLetter <= lastSpace) {
             //find index of the first letter of the word
@@ -54,72 +53,75 @@ public class StringHomework {
         System.out.println(defaultString);
     }
 
-    //task2. Подсчитать количество содержащихся в данном тексте знаков препинания.
+    //+task2. Подсчитать количество содержащихся в данном тексте знаков препинания.
     public static void task2(String str) {
         System.out.println("\nTask2.");
 
-        char[] punctuations = {'.', ',', '!', '?', ':', ';', '-', '(', ')', '"', '/', '\\', '\'', '[', ']'};
+        int defaultStrLength = str.length();
+        str = str.replaceAll("[.,!?;:\\-()\\[\\]'\"]", "");
+        int punctuationsCount = defaultStrLength - str.length();
 
-        int counter = 0;
-        for (int i = 0; i < punctuations.length; i++) {
-            for (int j = 0; j < str.length(); j++) {
-                if (punctuations[i] == str.charAt(j)) {
-                    counter++;
-                }
-            }
-        }
-        System.out.println("There are " + counter + " punctuation marks in the text.");
+        System.out.println("There are " + punctuationsCount + " punctuation marks in the text.");
     }
 
-    //task3. Определить сумму всех целых чисел, встречающихся в заданном тексте
+    //+task3. Определить сумму всех целых чисел, встречающихся в заданном тексте
     public static void task3(String str) {
-        System.out.println("\nTask3");
+        System.out.println("\nTask3.");
+        int sum = 0;
 
-        //split string to words
-        String[] strArray = str.split("[ .,:;!?'\"()#$%&*=+@`~a-z]");
+        Pattern pattern = Pattern.compile("[\\d]+");
+        Matcher m = pattern.matcher(str);
 
-        long sum = 0;
-        for (String s : strArray) {
-            try {
-                sum += Integer.parseInt(s);//if word is number then sum it,
-            } catch (Exception ignored) { //if word is not number then just ignore it
-            }
+        while (m.find()) {
+            sum += Integer.parseInt(m.group());
         }
+
         System.out.println("The sum of all numbers = " + sum);
     }
 
-    //task4. В каждом слове текста k-ю букву заменить заданным символом. Если k больше длины слова,
+    //+task4. В каждом слове текста k-ю букву заменить заданным символом. Если k больше длины слова,
     // корректировку не выполнять.
     public static void task4(String str) {
         System.out.println("\nTask4.");
-        int k = 5;
-        char symbol = 'X';
+        int k = 2;
+        char newSymbol = 'X';
 
         //split string to words
         String[] strArray = str.split("[ ]");
-        String newStr = "";
+        StringBuilder newStr = new StringBuilder();
 
-        for (int i = 0; i < strArray.length; i++) {
-            try {
-                strArray[i] = replaceByIndex(strArray[i], k, symbol);
-            } catch (Exception ignored) {
+        for (String word : strArray) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(word);
+            if (k < word.length()) {
+                char oldSymbol = sb.charAt(k);
+                if (Character.isLetter(oldSymbol)) {
+                    sb.setCharAt(k, newSymbol);
+                }
             }
-            newStr += strArray[i] + " ";
+            newStr.append(sb).append(" ");
         }
         System.out.println(newStr);
     }
 
-    //task5. Удалить из текста его часть, заключенную между двумя символами,
+    //+task5. Удалить из текста его часть, заключенную между двумя символами,
     // которые вводятся (например, между скобками ‘(’ и ‘)’ или между звездочками ‘*’ и т.п.).
     public static void task5(String str) {
         System.out.println("\nTask5.");
 
-        String symbol1 = "*";
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("Enter the first symbol: ");
+        String symbol1 = input.nextLine();
         int symbol1Index = str.indexOf(symbol1);
 
-        String symbol2 = "*";
+        System.out.println("Enter the second symbol: ");
+        String symbol2 = input.nextLine();
         int symbol2Index = str.lastIndexOf(symbol2);
 
+        input.close();
+
+        //removing
         for (int i = symbol1Index + 1; i < symbol2Index; i++) {
             str = replaceByIndex(str, symbol1Index + 1, "");
         }
@@ -132,14 +134,14 @@ public class StringHomework {
         System.out.println("\nTask6.");
         defaultStr = defaultStr.toLowerCase();
 
-        String[] strings = defaultStr.split("[!?;:\"'#%^*.\\s]+");
+        String[] words = defaultStr.split("[!?;:\"'#%^*.\\s()]+");
 
-        for (int i = 0; i < strings.length; i++) {
+        for (String word : words) {
             int oldStrLength = defaultStr.length(); //remember string length
-            defaultStr = defaultStr.replace(strings[i], "");//delete the same words from default string
-            int count = (oldStrLength - defaultStr.length()) / strings[i].length();//count how many words was deleted
+            defaultStr = defaultStr.replace(word, "");//delete the same words from default string
+            int count = (oldStrLength - defaultStr.length()) / word.length();//count how many words was deleted
             if (count > 0) { //checking if words have already found and printed
-                System.out.printf("%-9s= %d%n", strings[i], count);//print found word and count
+                System.out.printf("%-9s= %d%n", word, count);//print found word and count
             }
         }
     }
@@ -152,7 +154,7 @@ public class StringHomework {
         for (int i = 0; i < stringArray.length; i++) {
             stringArray[i] = stringArray[i].toLowerCase();
             stringArray[i] = stringArray[i].replaceAll("[^a-z]", "");//del symbols except letters
-            int lettersTotal = stringArray[i].length();                              //how many letters it total
+            int lettersTotal = stringArray[i].length();                              //how many letters in total
             stringArray[i] = stringArray[i].replaceAll("[aeiouy]", "");//del vowel letters
             int consonants = stringArray[i].length();                                 //how many consonant letters
             int vowels = lettersTotal - consonants;                                    //how many vowel letters
@@ -188,7 +190,7 @@ public class StringHomework {
 
         //print words of required length
         for (String word : strSet) {
-            if (word.length() ==requiredWordLength){
+            if (word.length() == requiredWordLength) {
                 System.out.println(word);
             }
         }
@@ -211,3 +213,4 @@ public class StringHomework {
     }
 
 }//end of class
+
