@@ -20,14 +20,14 @@ public class StringHomework {
         defaultString = defaultString.trim();
         System.out.println("Default string:\n" + defaultString);
 
-//        task1(defaultString);
-//        task2(defaultString);
-//        task3(defaultString);
-//        task4(defaultString);
-//        task5(defaultString);
+        task1(defaultString);
+        task2(defaultString);
+        task3(defaultString);
+        task4(defaultString);
+        task5(defaultString);
         task6(defaultString);
-//        task7(defaultString);
-//        task8(defaultString);
+        task7(defaultString);
+        task8(defaultString);
 
     }//end of main
 
