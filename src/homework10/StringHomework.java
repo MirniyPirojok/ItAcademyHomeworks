@@ -14,7 +14,7 @@ public class StringHomework {
         String defaultString = "This text is for doing the homework number 10." +
                 "\nThe first default sentence contains 8 words and 1 number. " +
                 "\n(This sentence is for the task number 5). " +
-                "\nThis sentence contains aaaaaa loooot of vooowel." +
+                "\nThis sentence contains aaaaaa loooot of vooowels." +
                 "\nIs this a question 1?" +
                 "\nIs this a question 2?";
         defaultString = defaultString.trim();
@@ -149,21 +149,23 @@ public class StringHomework {
     //task7. Найти, каких букв, гласных или согласных, больше в каждом предложении текста
     public static void task7(String str) {
         System.out.println("\nTask7.");
-        String[] stringArray = str.split("[.]");
 
-        for (int i = 0; i < stringArray.length; i++) {
-            stringArray[i] = stringArray[i].toLowerCase();
-            stringArray[i] = stringArray[i].replaceAll("[^a-z]", "");//del symbols except letters
-            int lettersTotal = stringArray[i].length();                              //how many letters in total
-            stringArray[i] = stringArray[i].replaceAll("[aeiouy]", "");//del vowel letters
-            int consonants = stringArray[i].length();                                 //how many consonant letters
-            int vowels = lettersTotal - consonants;                                    //how many vowel letters
+        String[] sentencesArray = str.split("[.!?]+");//split sentences to array
 
-            if (consonants > vowels) {
-                System.out.println("Sentence number " + (i + 1) + " contains " + " more consonants then vowels.");
-            } else if (consonants < vowels) {
-                System.out.println("Sentence number " + (i + 1) + " contains " + " more vowels then consonants.");
-            } else if (!stringArray[i].equals("")) {
+        for (int i = 0; i < sentencesArray.length; i++) {
+            //cut out only vowels
+            String vowelsStr = sentencesArray[i].replaceAll("(?i:[^aeiouy])", "");
+            //cut out only consonants
+            String consonantsStr = sentencesArray[i].replaceAll("(?i:[^bcdfjhgklmnpqrstvwxz])", "");
+
+            int vowelsCount = vowelsStr.length();
+            int consonantsCount = consonantsStr.length();
+
+            if (consonantsCount > vowelsCount) {
+                System.out.println("Sentence number " + (i + 1) + " contains more consonants then vowels.");
+            } else if (consonantsCount < vowelsCount) {
+                System.out.println("Sentence number " + (i + 1) + " contains more vowels then consonants.");
+            } else if (!sentencesArray[i].equals("")) {
                 System.out.println("Sentence number " + (i + 1) + " contains the same number of vowels and consonants");
             }
         }
@@ -175,18 +177,19 @@ public class StringHomework {
 
         int requiredWordLength = 2;
 
-        Pattern pattern = Pattern.compile("([A-ZА-Я][^.!?]*)\\?"); //pattern for sentences with "?" in the end
+        //find sentences with questions
+        Pattern pattern = Pattern.compile("([\\w][^.!?]*)\\?");
         Matcher m = pattern.matcher(defaultString);
 
         String newString = "";
         while (m.find()) {
-            //add to new string only words and spaces
+            //add from found sentences to new string only words with spaces
             newString = newString.concat(m.group().replaceAll("[^a-zA-z ]", ""));
         }
 
-        String[] strArray = newString.split(" ");
+        String[] words = newString.split(" ");//cut out words
 
-        Set<String> strSet = new HashSet<>(Arrays.asList(strArray));//del all duplicates
+        Set<String> strSet = new HashSet<>(Arrays.asList(words));//del all duplicates
 
         //print words of required length
         for (String word : strSet) {
