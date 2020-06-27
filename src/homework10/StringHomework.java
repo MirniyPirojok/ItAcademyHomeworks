@@ -20,14 +20,14 @@ public class StringHomework {
         defaultString = defaultString.trim();
         System.out.println("Default string:\n" + defaultString);
 
-        task1(defaultString);
-        task2(defaultString);
-        task3(defaultString);
+//        task1(defaultString);
+//        task2(defaultString);
+//        task3(defaultString);
         task4(defaultString);
-        task5(defaultString);
-        task6(defaultString);
-        task7(defaultString);
-        task8(defaultString);
+//        task5(defaultString);
+//        task6(defaultString);
+//        task7(defaultString);
+//        task8(defaultString);
 
     }//end of main
 
@@ -41,14 +41,16 @@ public class StringHomework {
         String changedString = "";
 
         while (firstLetter <= lastSpace) {
-            //find index of the first letter of the word
-            firstLetter = defaultString.indexOf(" ", firstLetter) + 1;
 
             //up the first letter of the word
             char upperLetter = Character.toUpperCase(defaultString.charAt(firstLetter));
 
             //replace first letter with upper letter
             defaultString = replaceByIndex(defaultString, firstLetter, upperLetter);
+
+            //find index of the first letter of the next word
+            firstLetter = defaultString.indexOf(" ", firstLetter) + 1;
+
         }
         System.out.println(defaultString);
     }
@@ -58,7 +60,7 @@ public class StringHomework {
         System.out.println("\nTask2.");
 
         int defaultStrLength = str.length();
-        str = str.replaceAll("[.,!?;:\\-()\\[\\]'\"]", "");
+        str = str.replaceAll("[.,!?;:\\-()\\[\\]'\"]", "");//del punctuation marks
         int punctuationsCount = defaultStrLength - str.length();
 
         System.out.println("There are " + punctuationsCount + " punctuation marks in the text.");
@@ -69,7 +71,7 @@ public class StringHomework {
         System.out.println("\nTask3.");
         int sum = 0;
 
-        Pattern pattern = Pattern.compile("[\\d]+");
+        Pattern pattern = Pattern.compile("[\\d]+");//get numbers
         Matcher m = pattern.matcher(str);
 
         while (m.find()) {
@@ -79,27 +81,29 @@ public class StringHomework {
         System.out.println("The sum of all numbers = " + sum);
     }
 
-    //+task4. В каждом слове текста k-ю букву заменить заданным символом. Если k больше длины слова,
-    // корректировку не выполнять.
+    //+task4. В каждом слове текста k-ю букву заменить заданным символом.
+    // Если k больше длины слова, корректировку не выполнять.
     public static void task4(String str) {
         System.out.println("\nTask4.");
-        int k = 2;
+        int kLetter = 2; //number of letter in the word
+        int kIndex = kLetter - 1; //index of letter in the word
         char newSymbol = 'X';
 
         //split string to words
         String[] strArray = str.split("[ ]");
         StringBuilder newStr = new StringBuilder();
 
+        //replace k-letter in the words
         for (String word : strArray) {
             StringBuilder sb = new StringBuilder();
-            sb.append(word);
-            if (k < word.length()) {
-                char oldSymbol = sb.charAt(k);
-                if (Character.isLetter(oldSymbol)) {
-                    sb.setCharAt(k, newSymbol);
+            sb.append(word); //add word to the string builder
+            if (word.length() >= kLetter) { //if word is not shorter then number of kLetter
+                char oldSymbol = sb.charAt(kIndex); //find k-symbol
+                if (Character.isLetter(oldSymbol)) { //if k-symbol is letter
+                    sb.setCharAt(kIndex, newSymbol); //replace k-letter with new symbol
                 }
             }
-            newStr.append(sb).append(" ");
+            newStr.append(sb).append(" "); //add space in the end of words
         }
         System.out.println(newStr);
     }
@@ -134,14 +138,16 @@ public class StringHomework {
         System.out.println("\nTask6.");
         defaultStr = defaultStr.toLowerCase();
 
+        //split text to words
         String[] words = defaultStr.split("[!?;:\"'#%^*.\\s()]+");
 
+        //find duplicates and their count
         for (String word : words) {
             int oldStrLength = defaultStr.length(); //remember string length
             defaultStr = defaultStr.replace(word, "");//delete the same words from default string
             int count = (oldStrLength - defaultStr.length()) / word.length();//count how many words was deleted
             if (count > 0) { //checking if words have already found and printed
-                System.out.printf("%-9s= %d%n", word, count);//print found word and count
+                System.out.printf("%-9s= %d%n", word, count);//print found word and its count
             }
         }
     }
@@ -183,16 +189,18 @@ public class StringHomework {
 
         String newString = "";
         while (m.find()) {
-            //add from found sentences to new string only words with spaces
+            //add from found sentences to new string only words and spaces
             newString = newString.concat(m.group().replaceAll("[^a-zA-z ]", ""));
         }
 
-        String[] words = newString.split(" ");//cut out words
+        //cut out words
+        String[] words = newString.split(" ");
 
-        Set<String> strSet = new HashSet<>(Arrays.asList(words));//del all duplicates
+        //del all duplicates
+        Set<String> wordsSet = new HashSet<>(Arrays.asList(words));
 
         //print words of required length
-        for (String word : strSet) {
+        for (String word : wordsSet) {
             if (word.length() == requiredWordLength) {
                 System.out.println(word);
             }
@@ -200,7 +208,7 @@ public class StringHomework {
     }
 
 
-    //methods for changing a symbol in the string
+    //methods for changing a symbol
     public static String replaceByIndex(String defaultString, int indexOfChangingSymbol, char newSymbol) {
         String newString = defaultString.substring(0, indexOfChangingSymbol);//cut string before changed letter of the word
         newString = newString + newSymbol; //add new letter to the end of substring
@@ -208,9 +216,10 @@ public class StringHomework {
         return newString;
     }
 
-    public static String replaceByIndex(String defaultString, int indexOfChangingSymbol, String newSymbol) {
+    //methods for changing symbol to substring
+    public static String replaceByIndex(String defaultString, int indexOfChangingSymbol, String newSubstring) {
         String newString = defaultString.substring(0, indexOfChangingSymbol);//cut string before changed letter of the word
-        newString = newString + newSymbol; //add new letter to the end of substring
+        newString = newString + newSubstring; //add new substring to the end of substring
         newString = newString + defaultString.substring(indexOfChangingSymbol + 1);//add the rest of the string
         return newString;
     }
