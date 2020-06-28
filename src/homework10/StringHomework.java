@@ -20,14 +20,14 @@ public class StringHomework {
         defaultString = defaultString.trim();
         System.out.println("Default string:\n" + defaultString);
 
-//        task1(defaultString);
-//        task2(defaultString);
-//        task3(defaultString);
+        task1(defaultString);
+        task2(defaultString);
+        task3(defaultString);
         task4(defaultString);
-//        task5(defaultString);
-//        task6(defaultString);
-//        task7(defaultString);
-//        task8(defaultString);
+        task5(defaultString);
+        task6(defaultString);
+        task7(defaultString);
+        task8(defaultString);
 
     }//end of main
 
@@ -55,7 +55,7 @@ public class StringHomework {
         System.out.println(defaultString);
     }
 
-    //+task2. Подсчитать количество содержащихся в данном тексте знаков препинания.
+    //task2. Подсчитать количество содержащихся в данном тексте знаков препинания.
     public static void task2(String str) {
         System.out.println("\nTask2.");
 
@@ -66,7 +66,7 @@ public class StringHomework {
         System.out.println("There are " + punctuationsCount + " punctuation marks in the text.");
     }
 
-    //+task3. Определить сумму всех целых чисел, встречающихся в заданном тексте
+    //task3. Определить сумму всех целых чисел, встречающихся в заданном тексте
     public static void task3(String str) {
         System.out.println("\nTask3.");
         int sum = 0;
@@ -81,7 +81,7 @@ public class StringHomework {
         System.out.println("The sum of all numbers = " + sum);
     }
 
-    //+task4. В каждом слове текста k-ю букву заменить заданным символом.
+    //task4. В каждом слове текста k-ю букву заменить заданным символом.
     // Если k больше длины слова, корректировку не выполнять.
     public static void task4(String str) {
         System.out.println("\nTask4.");
@@ -108,7 +108,7 @@ public class StringHomework {
         System.out.println(newStr);
     }
 
-    //+task5. Удалить из текста его часть, заключенную между двумя символами,
+    //task5. Удалить из текста его часть, заключенную между двумя символами,
     // которые вводятся (например, между скобками ‘(’ и ‘)’ или между звездочками ‘*’ и т.п.).
     public static void task5(String str) {
         System.out.println("\nTask5.");
