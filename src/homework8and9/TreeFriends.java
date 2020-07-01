@@ -1,7 +1,7 @@
 //task6
 package homework8and9;
 
-public class Tree {
+public class TreeFriends {
     public static void main(String[] args) {
         User users =
                 new User("Dima1",
@@ -37,7 +37,6 @@ public class Tree {
                                                 new User("Dima31")))));
 
         users.printTreeDepth();
-
     }//end of main
 
     static class User {
@@ -64,12 +63,14 @@ public class Tree {
             if (right != null) {
                 right.printTreeDepth();
             }
-
             System.out.println(this);
         }
 
         @Override
         public String toString() {
+            if (left == null || right == null) {
+                return friend;
+            }
             return friend + " {friends: " + left + ", " + right + "}";
         }
     }
