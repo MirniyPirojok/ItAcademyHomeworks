@@ -1,7 +1,6 @@
 package homework8and9.compositeFriends.domain;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class FriendLeader implements Friendship {
@@ -25,10 +24,6 @@ public class FriendLeader implements Friendship {
         friends.add(newFriend);
     }
 
-    public void add(Friendship... newFriends) {
-        friends.addAll(Arrays.asList(newFriends));
-    }
-
     @Override
     public String getName() {
         return name;
@@ -47,6 +42,4 @@ public class FriendLeader implements Friendship {
             friend.print();
         }
     }
-
-
 }//end of class

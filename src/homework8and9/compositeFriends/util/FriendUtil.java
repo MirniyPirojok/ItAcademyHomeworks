@@ -43,5 +43,4 @@ public class FriendUtil {
         }
         return friendLeaders;
     }
-
 }//end of class
