@@ -1,3 +1,5 @@
+/* Task: Вывести список имен друзей пользователя до 5 уровня вложенности*/
+
 package homework8and9;
 
 import homework8and9.domain.Friend;

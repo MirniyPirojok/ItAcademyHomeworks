@@ -34,8 +34,7 @@ public class Friend {
         }
     }
 
-    //find friends names of friend leader
-    String findSubFriendNames() {
+    String findSubFriendsNames() {
         StringBuilder friendNames = new StringBuilder();
         for (Friend friendLeader : this.friendList) {
             friendNames.append(friendLeader.name).append("(level ").append(friendLeader.level).append(") ");
@@ -44,10 +43,10 @@ public class Friend {
     }
 
     public void print() {
-        if (!this.friendList.isEmpty()) { //if friend leader has friends then print his level name and friend list
-            System.out.println("Level " + this.level + ". " + this.name + " has friends: " + findSubFriendNames().trim() + ".");
-            for (Friend friendLeader : friendList) {
-                friendLeader.print();
+        if (!this.friendList.isEmpty()) { //if friend has friends then print his level name and friend list
+            System.out.println("Level " + this.level + ". " + this.name + " has friends: " + findSubFriendsNames().trim() + ".");
+            for (Friend friend : friendList) {
+                friend.print();
             }
         }
     }
