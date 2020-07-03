@@ -21,15 +21,15 @@ public class Friend {
     }
 
     //add friends using recursion
-    public void addFriends(int levelsCount, int friendsCount) {
+    public void addFriends(int levelsCount, int friendsOnLevel) {
         this.friendList = new ArrayList<>();
         if (this.level < levelsCount) { //check level
             int newLevel = this.level + 1;
-            for (int i = 0; i < friendsCount; i++) { //add subfriends
+            for (int i = 0; i < friendsOnLevel; i++) { //add subfriends
                 this.friendList.add(new Friend(newLevel, generateFriendName()));
             }
             for (Friend friend : friendList) { //add friends to subfriends
-                friend.addFriends(levelsCount, friendsCount);
+                friend.addFriends(levelsCount, friendsOnLevel);
             }
         }
     }
