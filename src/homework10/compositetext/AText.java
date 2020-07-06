@@ -20,5 +20,4 @@ public class AText implements IText {
     public IText separate() {
         return null;
     }
-
 }//end of class
