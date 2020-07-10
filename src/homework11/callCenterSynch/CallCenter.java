@@ -12,22 +12,26 @@ public class CallCenter {
     public static void main(String[] args) {
         System.out.println("Call center started to work.");
 
-
+        //make array of operators
         for (int i = 0; i < OPERATOR_COUNT; i++) {
             operators[i] = new Operator(i + 1);
         }
 
         for (int i = 1; i <= CLIENT_COUNT; i++) {
+            //make client thread
             Client client = new Client(i);
             Thread t = new Thread(client);
 
+            //choose free operator
             for (int j = OPERATOR_COUNT - 1; j >= 0; j--) {
                 if (!operators[j].isOnCall()) {
                     client.setOperator(operators[j]);
                 }
             }
-            t.start();
 
+            t.start();//start speaking
+
+            //pause between new clients
             try {
                 sleep(2000);
             } catch (InterruptedException e) {
