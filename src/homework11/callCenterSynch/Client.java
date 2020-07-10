@@ -1,30 +1,36 @@
 package homework11.callCenterSynch;
 
 public class Client implements Runnable {
+    private final int clientId;
 
-    int clientId;
-    Operator operator;
+    boolean wasServiced;
 
-    public void setOperator(Operator operator) {
-        this.operator = operator;
+    CallCenter callCenter;
+
+    public Client(int clientId, CallCenter callCenter) {
+        this.wasServiced = false;
+        this.clientId = clientId;
+        this.callCenter = callCenter;
     }
 
-    public Client(int clientId) {
-        this.clientId = clientId;
-        System.out.println("Client #" + clientId + " is calling...");
+    public void setWasServiced(boolean wasServiced) {
+        this.wasServiced = wasServiced;
     }
 
     @Override
     public void run() {
-        speak();
-    }
+        System.out.println("Client #" + this.clientId + " is calling...");
 
-    synchronized public void speak() {
-        try {
-            operator.service(this.clientId);
-        } catch (NullPointerException e){
-            System.out.println("Sorry, there is no free operators. Call later.");
+        //while client is not serviced
+        //looking for free operator and service client
+        while (!this.wasServiced) {
+            for (Operator operator : callCenter.operators) {
+                if (!operator.isOnCall()) {
+                    operator.service(clientId);
+                    this.setWasServiced(true);
+                    break;
+                }
+            }
         }
     }
-
 }//end of class

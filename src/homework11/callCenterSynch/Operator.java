@@ -1,35 +1,40 @@
 package homework11.callCenterSynch;
 
-public class Operator {
-    int operatorId;
-    private boolean onCall = false;
+import static java.lang.Thread.sleep;
 
-    public Operator() {
-        System.out.println("Operator started to work.");
-    }
+public class Operator {
+    private final int operatorId;
+
+    private boolean onCall;
 
     public Operator(int operatorId) {
-        System.out.println("Operator #" + operatorId + " started to work.");
+        this.onCall = false;
         this.operatorId = operatorId;
+        System.out.println("Operator #" + operatorId + " started to work.");
     }
 
     public boolean isOnCall() {
-        return onCall;
+        return this.onCall;
     }
 
     public void setOnCall(boolean onCall) {
         this.onCall = onCall;
     }
 
-    synchronized public void service(int clientId) {
-        onCall = true;
+   synchronized public void service(int clientId) {
+        this.setOnCall(true);
+
         System.out.println("Operator #" + this.operatorId + " started to service client #" + clientId);
+
+        //wait while operator speak with client
         try {
-            Thread.sleep(5000);
+            sleep(4000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
         System.out.println("Operator #" + this.operatorId + " finished to service client #" + clientId);
-        onCall = false;
+
+        this.setOnCall(false);
     }
+
 }//end of class
