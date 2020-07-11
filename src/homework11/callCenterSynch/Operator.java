@@ -3,6 +3,8 @@ package homework11.callCenterSynch;
 import static java.lang.Thread.sleep;
 
 public class Operator {
+    public static final int SERVICING_TIME = 4000;
+
     private final int operatorId;
 
     private boolean onCall;
@@ -21,14 +23,13 @@ public class Operator {
         this.onCall = onCall;
     }
 
-   synchronized public void service(int clientId) {
+    synchronized public void service(int clientId) {
         this.setOnCall(true);
 
         System.out.println("Operator #" + this.operatorId + " started to service client #" + clientId);
-
         //wait while operator speak with client
         try {
-            sleep(4000);
+            sleep(SERVICING_TIME);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

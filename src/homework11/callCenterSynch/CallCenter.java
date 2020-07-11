@@ -2,7 +2,7 @@ package homework11.callCenterSynch;
 
 public class CallCenter {
     Operator[] operators;
-    int operatorsCount;
+    private final int operatorsCount;
 
     public CallCenter(int operatorsCount) {
         this.operatorsCount = operatorsCount;
