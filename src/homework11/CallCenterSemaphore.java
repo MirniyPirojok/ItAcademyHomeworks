@@ -7,7 +7,7 @@ public class CallCenterSemaphore {
 
     private static final int CUSTOMERS_COUNT = 7;
 
-    private static final boolean[] OPERATORS = new boolean[OPERATORS_COUNT];
+    private static final boolean[] OPERATORS = new boolean[OPERATORS_COUNT];//call center capacity
 
     private static final Semaphore SEMAPHORE = new Semaphore(OPERATORS_COUNT, true);
 
@@ -30,6 +30,7 @@ public class CallCenterSemaphore {
             System.out.printf("Customer #%d called to call center.\n", customerId);
             try {
                 SEMAPHORE.acquire();
+
                 int operatorId = -1;
                 for (int i = 0; i < OPERATORS_COUNT; i++)
                     if (!OPERATORS[i]) {
