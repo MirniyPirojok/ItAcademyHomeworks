@@ -18,6 +18,7 @@ public class CallCenterDemo {
         CallCenter callCenter = new CallCenter(OPERATORS_COUNT);
         List<Thread> threads = new ArrayList<>();
 
+        //client calling
         for (int i = 1; i <= CLIENT_COUNT; i++) {
             Thread t = new Thread(new Client(i, callCenter, semaphore));
             t.start();
@@ -25,10 +26,15 @@ public class CallCenterDemo {
             sleep(TIME_BETWEEN_CLIENTS_CALLING);
         }
 
+        //wait finishing of all threads
         for (Thread thread : threads) {
-            thread.join();
+            try {
+                thread.join();
+            } catch (InterruptedException e){
+                System.out.println("Main thread is interrupted.");
+            }
         }
 
-        System.out.println("\nCall center finished working.");
+        System.out.println("\nCall center finished to work.");
     }//end of main
 }//end of class

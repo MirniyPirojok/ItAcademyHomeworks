@@ -18,10 +18,6 @@ public class Client implements Runnable {
         this.semaphore = semaphore;
     }
 
-    public void setWasServiced(boolean wasServiced) {
-        this.wasServiced = wasServiced;
-    }
-
     @Override
     public void run() {
         System.out.println("Client #" + this.clientId + " is calling...");
@@ -31,10 +27,10 @@ public class Client implements Runnable {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        //looking for free operator and put client to him
         for (Operator operator : callCenter.operators) {
             if (!operator.isOnCall()) {
                 operator.service(clientId);
-                this.setWasServiced(true);
                 break;
             }
         }
