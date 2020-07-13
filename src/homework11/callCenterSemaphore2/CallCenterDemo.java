@@ -28,11 +28,7 @@ public class CallCenterDemo {
 
         //wait finishing of all threads
         for (Thread thread : threads) {
-            try {
-                thread.join();
-            } catch (InterruptedException e){
-                System.out.println("Main thread is interrupted.");
-            }
+            thread.join();
         }
 
         System.out.println("\nCall center finished to work.");
