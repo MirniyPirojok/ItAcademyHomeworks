@@ -46,7 +46,8 @@ public class CallCenterSemaphore {
 
                 SEMAPHORE.release();
                 System.out.printf("Customer #%d was serviced.\n", customerId);
-            } catch (InterruptedException ignored) {
+            } catch (InterruptedException e) {
+                System.out.println("Поток прерван");
             }
         }
     }
