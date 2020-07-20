@@ -1,5 +1,8 @@
 package homework11.callCenterSemaphore2;
 
+import practiceannotaiton.PracticeAnnotation;
+
+@PracticeAnnotation
 public class CallCenter {
     Operator[] operators;
     private final int operatorsCount;
@@ -10,6 +13,7 @@ public class CallCenter {
         addOperators();
     }
 
+    @PracticeAnnotation
     public void addOperators() {
         operators = new Operator[this.operatorsCount];
         for (int i = 0; i < this.operatorsCount; i++) {

@@ -1,6 +1,10 @@
 package homework6;
 
+import practiceannotaiton.PracticeAnnotation;
+
+@PracticeAnnotation
 public class Computer {
+    @PracticeAnnotation
     private int price;
     private PowerSupply powerSupply;
 
@@ -12,14 +16,17 @@ public class Computer {
         this.powerSupply = new PowerSupply();
     }
 
+    @PracticeAnnotation
     public PowerSupply getPowerSupply() {
         return powerSupply;
     }
 
+    @PracticeAnnotation
     public void setPowerSupply(PowerSupply powerSupply) {
         this.powerSupply = powerSupply;
     }
 
+    @PracticeAnnotation
     public int getPrice() {
         return price;
     }

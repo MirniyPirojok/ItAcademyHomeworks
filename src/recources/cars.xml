@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<academy:cars
+        xmlns:academy="http://htp.com/academy"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://htp.com/academy cars-validation.xsd">
+
+    <car id = "1">
+        <vin>123456789</vin>
+        <model>Renault Laguna</model>
+        <productionDate>2001</productionDate>
+        <price>2000</price>
+    </car>
+
+    <car id = "2">
+        <vin>987654321</vin>
+        <model>Tesla Model 3 Standard Range</model>
+        <productionDate>2020</productionDate>
+        <price>60000</price>
+    </car>
+</academy:cars>

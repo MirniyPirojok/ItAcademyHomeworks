@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://htp.com/academy"
+        xmlns:academy="http://htp.com/academy">
+
+    <element name="cars">
+        <complexType>
+            <sequence>
+                <element name="car" minOccurs="2"
+                         maxOccurs="unbounded"
+                         type="academy:Сar"/>
+            </sequence>
+        </complexType>
+    </element>
+    
+    <complexType name="Сar">
+        <sequence>
+            <element name="vin" type="long"/>
+            <element name="model" type="string"/>
+            <element name="productionDate" type="int"/>
+            <element name="price" type="int"/>
+        </sequence>
+        <attribute name="id" type="long" use="required"/>
+    </complexType>
+</schema>
