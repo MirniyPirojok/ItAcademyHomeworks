@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<academy:banks
+        xmlns:academy="http://htp.com/academy"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://htp.com/academy banks-validation.xsd">
+
+    <bank id="1">
+        <name>Priorbank</name>
+        <bik>777</bik>
+        <address>Nezavisimosti 168</address>
+    </bank>
+    <bank id="2">
+        <name>BNB</name>
+        <bik>999</bik>
+        <address>Nezavisimosti 175</address>
+    </bank>
+</academy:banks>

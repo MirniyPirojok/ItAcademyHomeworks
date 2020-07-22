@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://htp.com/academy"
+        xmlns:academy="http://htp.com/academy">
+    <element name="banks">
+        <complexType>
+            <sequence>
+                <element name="bank" minOccurs="2" maxOccurs="unbounded" type="academy:Bank"/>
+            </sequence>
+        </complexType>
+    </element>
+
+    <complexType name="Bank">
+        <sequence>
+            <element name="name" type="string"/>
+            <element name="bik" type="long"/>
+            <element name="address" type="string"/>
+        </sequence>
+        <attribute name="id" type="long" use="required"/>
+    </complexType>
+</schema>
